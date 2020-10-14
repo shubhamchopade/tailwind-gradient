@@ -4,15 +4,11 @@ function useKeyPress(keycode) {
   const [keyPressed, setKeyPressed] = useState(false);
 
   function downHandler(e) {
+    e.preventDefault();
     if (e.keyCode == keycode) {
       setKeyPressed(true);
     }
   }
-  // function upHandler(e) {
-  //   if (e.keyCode == keycode) {
-  //     setKeyPressed(false);
-  //   }
-  // }
 
   useEffect(() => {
     window.addEventListener("keydown", downHandler);

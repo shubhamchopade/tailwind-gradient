@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import firebase from "../config/firebase";
 import { AppContext } from "../store/AppContext";
-import { List, Button } from "./theme";
+import { List, ButtonPrimary } from "./theme";
 import head from "../assets/images/head-img.svg";
 
 const Header = () => {
@@ -38,14 +38,14 @@ const Header = () => {
         <ul>
           <li>
             {isLoggedIn ? (
-              <Button onClick={logout}>Logout</Button>
+              <ButtonPrimary onClick={logout}>Logout</ButtonPrimary>
             ) : (
-              <Link to="/login"><Button>Login</Button></Link>
+              <Link to="/login"><ButtonPrimary>Login</ButtonPrimary></Link>
             )}
           </li>
           {!isLoggedIn && (
             <li>
-              <NavLink to="/signup"><Button>Sign Up</Button></NavLink>
+              <NavLink to="/signup"><ButtonPrimary>Sign Up</ButtonPrimary></NavLink>
             </li>
           )}
         </ul>
