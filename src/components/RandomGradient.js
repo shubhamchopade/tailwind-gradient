@@ -8,6 +8,7 @@ const weights = [100, 200, 300, 400, 500];
 
 const RandomGradient = () => {
   const [randomTo, setRandomTo] = useState("from-red-400 to-red-500");
+  const [switched, setSwitched] = useState(false);
 
   let [spaceBar, setSpaceBar] = useKeyPress(32);
 
@@ -17,19 +18,39 @@ const RandomGradient = () => {
     // console.log(spaceBar);
   }, [spaceBar]);
 
+  const randomNumber = () => {
+    const random = Math.ceil(Math.random() * colors.length - 1);
+    return random;
+  };
+
   const handleClick = () => {
-    const randomNumber = Math.ceil(Math.random() * colors.length - 1);
-    const randomNumber1 = Math.ceil(Math.random() * colors.length - 1);
-    console.log(randomNumber);
-    console.log(randomNumber1);
     setRandomTo(
-      `from-${colors[randomNumber1]}-${weights[randomNumber1]} to-${colors[randomNumber]}-${weights[randomNumber]}`
+      `from-${colors[randomNumber()]}-${weights[randomNumber()]} to-${
+        colors[randomNumber()]
+      }-${weights[randomNumber()]}`
     );
+  };
+
+  const handleSwitch = () => {
+    setSwitched(!switched);
   };
 
   return (
     <div>
-      <div className={`h-24 bg-gradient-to-r ${randomTo}`}></div>
+      <Button blue onClick={handleSwitch}>Switch</Button>
+      {switched ? (
+        <div className={`h-24 bg-gradient-to-r ${randomTo}`}> 2 color</div>
+      ) : (
+        <div
+          className={`h-24 bg-gradient-to-r from-${
+            colors[randomNumber()]
+          }-${weights[randomNumber()]} via-${colors[randomNumber()]}-${
+            weights[randomNumber()]
+          } to-${colors[randomNumber()]}-${weights[randomNumber()]}`}
+        >
+          3 color
+        </div>
+      )}
 
       <Button primary onClick={handleClick}>
         Generate
