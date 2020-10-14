@@ -6,8 +6,11 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
+        "axios": "^0.20.0",
+        "firebase": "^7.23.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-router-dom": "^5.2.0",
         "react-scripts": "3.4.1",
         "styled-components": "^5.1.0"
     },
@@ -38,7 +41,8 @@
         "autoprefixer": "^9.7.6",
         "babel-plugin-macros": "^2.8.0",
         "postcss-cli": "^7.1.0",
-        "tailwind.macro": "^1.0.0-alpha.10",
-        "tailwindcss": "^1.2.0"
+        "tailwind.macro": "^0.5.10",
+        "tailwindcss": "^1.9.1",
+        "twin.macro": "^1.10.0"
     }
 }
