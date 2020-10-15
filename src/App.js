@@ -8,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import routes from "./utils/routes";
-import firebase from "./config/firebase";
+import {firebase, projectFireStore} from "./config/firebase";
 import { AppContext } from "./store/AppContext";
 import AuthRoute from "./utils/routes/AuthRoute";
 import GuestRoute from "./utils/routes/GuestRoute";
@@ -18,6 +18,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -30,7 +32,7 @@ function App() {
         setIsLoggedIn(false);
         setIsLoading(false);
       }
-      console.log(user);
+      console.log('Logged in', user.displayName);
     });
   }, []);
 

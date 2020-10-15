@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
-import firebase from "../config/firebase";
+import {firebase} from "../config/firebase";
 
 
 

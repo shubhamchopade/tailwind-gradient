@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from "react";
+import styled from "styled-components";
+import GradientBlock from "../components/GradientBlock";
+import tw from "twin.macro";
+import { firebase } from "../config/firebase";
+import SavedGradients from "../components/SavedGradients";
+import { AppContext } from "../store/AppContext";
+
+const StyledDiv = styled.div`
+  ${tw`grid sm:grid-cols-3`}
+`;
 
 const Gallery = () => {
-  return (
-    <div>
-      <img src='https://source.unsplash.com/random'></img>
-    </div>
-  )
-}
+  const [userData, getCurrentUserData] = useState(null);
+  const [isLoggedin] = useContext(AppContext);
 
-export default Gallery
+  return (
+    <>
+      <StyledDiv>
+        <GradientBlock color='from-red-100 to-blue-200' />
+        <GradientBlock color='from-red-100 to-blue-200' />
+        <GradientBlock color='from-red-100 to-blue-200' />
+      </StyledDiv>
+    </>
+  );
+};
+
+export default Gallery;

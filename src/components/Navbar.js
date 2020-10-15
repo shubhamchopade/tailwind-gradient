@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
-import firebase from "../config/firebase";
+import {firebase} from "../config/firebase";
 import { AppContext } from "../store/AppContext";
 import { List, ButtonPrimary } from "./theme";
 import head from "../assets/images/head-img.svg";
@@ -30,9 +30,14 @@ const Header = () => {
             </NavLink>
           </li>
           {isLoggedIn && (
+            <>
             <li>
               <NavLink to="/explore">Explore</NavLink>
             </li>
+            <li>
+              <NavLink to="/saved">Saved</NavLink>
+            </li>
+            </>
           )}
         </ul>
         <ul>
