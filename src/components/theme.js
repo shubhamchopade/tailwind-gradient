@@ -6,12 +6,12 @@ let abc = "p-2 bg-orange-400 ";
 console.log(abc);
 
 export const ButtonPrimary = styled.button.attrs({
-  className: 'px-4 py-2 rounded'
+  className: "px-4 py-2 rounded",
 })`
   ${(props) => {
     if (props.primary) return tw`bg-red-200`;
     else if (props.secondary) return tw`border border-blue-200`;
-    else return tw`border border-blue-200`
+    else return tw`border border-blue-200`;
   }}
 `;
 export const List = styled.ul`

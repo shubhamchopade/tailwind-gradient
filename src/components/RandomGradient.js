@@ -10,9 +10,9 @@ const weights = [100, 200, 300, 400, 500, 600];
 
 const RandomGradient = () => {
   const [randomTo, setRandomTo] = useState("from-red-400 to-red-500");
-  const [switched, setSwitched] = useState(false);
+  const [switched, setSwitched] = useState(true);
 
-  const data = useGetDocument('green');
+  const data = useGetDocument("green");
 
   let [spaceBar, setSpaceBar] = useKeyPress(32);
 
