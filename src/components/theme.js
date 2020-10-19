@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-let abc = "p-2 bg-orange-400 ";
-console.log(abc);
-
 export const ButtonPrimary = styled.button.attrs({
   className: "px-4 py-2 rounded",
 })`

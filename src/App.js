@@ -13,6 +13,7 @@ import { AppContext } from "./store/AppContext";
 import AuthRoute from "./utils/routes/AuthRoute";
 import GuestRoute from "./utils/routes/GuestRoute";
 import Header from "./components/Navbar";
+import Loader from "./components/Loader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +35,7 @@ function App() {
     });
   }, []);
 
-  if (isLoading) return <h1>Loading......</h1>;
+  if (isLoading) return <Loader />;
 
   return (
     <Router>

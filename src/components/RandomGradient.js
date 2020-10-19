@@ -4,6 +4,7 @@ import { ButtonPrimary } from "./theme";
 import useKeyPress from "../utils/hooks/useKeyPress";
 import FirebaseData from "./FirebaseData";
 import useGetDocument from "../utils/hooks/useGetDocument";
+import { motion } from "framer";
 
 const colors = ["blue", "yellow", "green", "gray", "red", "orange"];
 const weights = [100, 200, 300, 400, 500, 600];
@@ -45,13 +46,9 @@ const RandomGradient = () => {
         Switch
       </ButtonPrimary>
       {switched ? (
-        <>
-          <div className={`h-screen bg-gradient-to-r ${randomTo}`}>
-            {" "}
-            2 color
-          </div>
+        <motion.div className={`h-screen bg-gradient-to-r ${randomTo}`}>
           <FirebaseData />
-        </>
+        </motion.div>
       ) : (
         <div
           className={`h-24 bg-gradient-to-r from-${colors[randomNumber()]}-${
