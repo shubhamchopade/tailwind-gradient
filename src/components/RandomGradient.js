@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import GradientBar from "./GradientBar";
 import { ButtonPrimary, StyledLink } from "./theme";
 import useKeyPress from "../utils/hooks/useKeyPress";
@@ -13,10 +13,9 @@ const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 const RandomGradient = () => {
   const [randomTo, setRandomTo] = useState("from-red-400 to-red-500");
   const [switched, setSwitched] = useState(true);
+  let [spaceBar, setSpaceBar] = useKeyPress(32);
 
   // const data = useGetDocument("green");
-
-  let [spaceBar, setSpaceBar] = useKeyPress(32);
 
   useEffect(() => {
     handleClick();
@@ -35,10 +34,6 @@ const RandomGradient = () => {
         colors[randomNumber()]
       }-${weights[randomNumber()]}`
     );
-  };
-
-  const handleSwitch = () => {
-    setSwitched(!switched);
   };
 
   return (
