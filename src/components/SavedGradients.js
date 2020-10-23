@@ -1,11 +1,11 @@
+import { motion } from "framer";
 import React, { useEffect, useState } from "react";
 import { firebase, projectFireStore } from "../config/firebase";
 import GradientBlock from "./GradientBlock";
-// colors = ['from-red-100 to-green-300', 'from-red-100 to-green-300', 'from-red-100 to-green-300']
+import Loader from "./Loader";
 
 const SavedGradients = () => {
-  let [data, setData] = useState(0);
-
+  let [data, setData] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -14,24 +14,29 @@ const SavedGradients = () => {
         .doc(user.uid)
         .get()
         .then((doc) => {
-          setData(doc.data().count);
+          setData(doc.data() ? doc.data() : null);
         });
     });
   }, []);
 
   // useEffect(() => {
   //   firebase.auth().onAuthStateChanged((user) => {
-  //     const db = projectFireStore.collection("users").doc(user.uid).set({
+  //     projectFireStore.collection("users").doc(user.uid).set({
   //       email: user.email,
   //       count: data,
   //     });
   //   });
-  // }, [data]);
+  // }, []);
 
   return (
-    <div>
-      {data && data.map((dat)=> <GradientBlock color={dat} />)}
-    </div>
+    <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
+      {console.log(data)}
+      {data.length != 0 ? (
+        data.count.map((dat) => <GradientBlock color={dat} />)
+      ) : (
+        <Loader />
+      )}
+    </motion.div>
   );
 };
 

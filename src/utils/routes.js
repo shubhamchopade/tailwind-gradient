@@ -3,6 +3,7 @@ import Home from "../page/Home";
 import Login from "../page/Login";
 import Gallery from "../page/Gallery";
 import SavedGradients from "../components/SavedGradients";
+import BrowseGradient from "../components/BrowseGradient";
 
 export default [
   {
@@ -21,5 +22,9 @@ export default [
   {
     path: "/saved",
     component: () => <SavedGradients />,
+  },
+  {
+    path: "/browse-gradients",
+    component: () => <BrowseGradient />,
   },
 ];

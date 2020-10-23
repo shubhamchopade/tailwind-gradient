@@ -8,18 +8,17 @@ import {
   Redirect,
 } from "react-router-dom";
 import routes from "./utils/routes";
-import {firebase, projectFireStore} from "./config/firebase";
+import { firebase, projectFireStore } from "./config/firebase";
 import { AppContext } from "./store/AppContext";
 import AuthRoute from "./utils/routes/AuthRoute";
 import GuestRoute from "./utils/routes/GuestRoute";
 import Header from "./components/Navbar";
+import Loader from "./components/Loader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
-
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -32,16 +31,16 @@ function App() {
         setIsLoggedIn(false);
         setIsLoading(false);
       }
-      console.log('Logged in', user.displayName);
+      console.log("Logged in", user.displayName);
     });
   }, []);
 
-  if (isLoading) return <h1>Loading......</h1>;
+  if (isLoading) return <Loader />;
 
   return (
     <Router>
       <AppContext.Provider value={[isLoggedIn, user]}>
-      <Header />
+        <Header />
         <Switch>
           {routes.map((route, index) => {
             if (route.path === "/login") {
@@ -54,7 +53,17 @@ function App() {
                 />
               );
             }
-            if (route.path === "/gallery") {
+            if (route.path === "/explore") {
+              return (
+                <AuthRoute
+                  key={index}
+                  exact={route.exact}
+                  path={route.path}
+                  component={route.component}
+                />
+              );
+            }
+            if (route.path === "/saved") {
               return (
                 <AuthRoute
                   key={index}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { projectFireStore } from "../../config/firebase";
 
-const useGetDocument = (grad) => {
-  const [gradient, setGradient] = useState('red');
+const useGetDocument = (grad, data) => {
+  const [gradient, setGradient] = useState("red");
 
   const docRef = projectFireStore.collection("gradients").doc(grad);
 
@@ -12,7 +12,7 @@ const useGetDocument = (grad) => {
       .then(function (doc) {
         if (doc.exists) {
           console.log("Document data:", doc.data());
-          setGradient(doc.data())
+          setGradient(doc.data());
         } else {
           // doc.data() will be undefined in this case
           console.log("No such document!");
@@ -24,15 +24,6 @@ const useGetDocument = (grad) => {
   }, []);
 
   return gradient;
-
-  // return docRef
-  //   .get()
-  //   .then((doc) => {
-  //     doc ? doc.data() : console.log("No such document!");
-  //   })
-  //   .catch(function (error) {
-  //     console.log("Error getting document:", error);
-  //   });
 };
 
 export default useGetDocument;

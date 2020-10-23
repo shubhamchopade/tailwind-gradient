@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
-import {firebase} from "../config/firebase";
+import { firebase } from "../config/firebase";
+import Input from "../components/Input";
+import { Frame, motion } from "framer";
+import styled from "styled-components";
+import { FaGoogle } from "react-icons/fa";
 
-
+const Button = styled(motion.button)`
+  width: 250px;
+  height: 50px;
+  padding: 1rem;
+  background: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(form.email, form.password)
-      .then((res) => setIsLoggedIn(true))
-      .catch(function (error) {
-        var errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
-
   const handleGoogle = () => {
     firebase
       .auth()
-      .signInWithPopup(provider)
+      .signInWithRedirect(provider)
       .then(function (result) {
         var token = result.credential.accessToken;
         setIsLoggedIn(true);
@@ -43,36 +43,24 @@ const Login = () => {
 
   const provider = new firebase.auth.GoogleAuthProvider();
 
-  const handleInput = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   if (isLoggedIn) {
     history.replace("/");
   }
 
   return (
     <div>
-      <button onClick={handleGoogle}>Google</button>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Email"
-          type="email"
-          onChange={handleInput}
-          value={form.email}
-          name="email"
-        ></input>
-        <input
-          placeholder="Password"
-          type="password"
-          onChange={handleInput}
-          value={form.password}
-          name="password"
-        ></input>
-        <button secondary type="submit">
-          Login
-        </button>
-      </form>
+      <Button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={handleGoogle}
+        className=""
+      >
+        <FaGoogle />
+        Continue with Google
+      </Button>
+      <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
+        <Input setIsLoggedIn={setIsLoggedIn} />
+      </motion.div>
     </div>
   );
 };
