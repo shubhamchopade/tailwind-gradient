@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { firebase, projectFireStore } from "../config/firebase";
 import GradientBlock from "./GradientBlock";
 import Loader from "./Loader";
-// colors = ['from-red-100 to-green-300', 'from-red-100 to-green-300', 'from-red-100 to-green-300']
 
 const SavedGradients = () => {
   let [data, setData] = useState([]);

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, NavLink, useHistory } from "react-router-dom";
-import {firebase} from "../config/firebase";
+import { firebase } from "../config/firebase";
 import { AppContext } from "../store/AppContext";
 import { List, ButtonPrimary } from "./theme";
 import head from "../assets/images/head-img.svg";
@@ -26,17 +26,17 @@ const Header = () => {
         <ul>
           <li>
             <NavLink to="/">
-              <img src={head}></img>
+              <img className="w-20" src={head}></img>
             </NavLink>
           </li>
           {isLoggedIn && (
             <>
-            <li>
-              <NavLink to="/explore">Explore</NavLink>
-            </li>
-            <li>
-              <NavLink to="/saved">Saved</NavLink>
-            </li>
+              <li>
+                <NavLink to="/explore">Explore</NavLink>
+              </li>
+              <li>
+                <NavLink to="/saved">Saved</NavLink>
+              </li>
             </>
           )}
         </ul>
@@ -45,16 +45,21 @@ const Header = () => {
             {isLoggedIn ? (
               <ButtonPrimary onClick={logout}>Logout</ButtonPrimary>
             ) : (
-              <Link to="/login"><ButtonPrimary>Login</ButtonPrimary></Link>
+              <Link to="/login">
+                <ButtonPrimary>Login</ButtonPrimary>
+              </Link>
             )}
           </li>
           {!isLoggedIn && (
             <li>
-              <NavLink to="/signup"><ButtonPrimary>Sign Up</ButtonPrimary></NavLink>
+              <NavLink to="/signup">
+                <ButtonPrimary>Sign Up</ButtonPrimary>
+              </NavLink>
             </li>
           )}
         </ul>
       </List>
+      <hr></hr>
     </div>
   );
 };
