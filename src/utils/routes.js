@@ -4,6 +4,7 @@ import Login from "../page/Login";
 import Gallery from "../page/Gallery";
 import SavedGradients from "../components/SavedGradients";
 import BrowseGradient from "../components/BrowseGradient";
+import Signup from "../components/Signup";
 
 export default [
   {
@@ -14,6 +15,10 @@ export default [
   {
     path: "/login",
     component: () => <Login />,
+  },
+  {
+    path: "/signup",
+    component: () => <Signup />,
   },
   {
     path: "/explore",

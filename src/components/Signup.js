@@ -18,14 +18,14 @@ const StyledErrorMessage = styled(ErrorMessage)`
   margin-top: 2px;
 `;
 
-const Input = ({ setIsLoggedIn }) => {
+const Signup = ({ setIsLoggedIn }) => {
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
       onSubmit={(value) => {
         firebase
           .auth()
-          .signInWithEmailAndPassword(value.email, value.password)
+          .createUserWithEmailAndPassword(value.email, value.password)
           .then(setIsLoggedIn(true));
       }}
       validationSchema={Yup.object({
@@ -120,4 +120,4 @@ const Input = ({ setIsLoggedIn }) => {
   );
 };
 
-export default Input;
+export default Signup;

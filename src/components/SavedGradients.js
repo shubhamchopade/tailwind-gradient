@@ -34,9 +34,11 @@ const SavedGradients = () => {
 
   return (
     <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
-      {console.log(data)}
-      {data.length != 0 &&
-        data.count.map((dat) => <BrowseGradientBlock color={dat} />)}
+      {data === null ? (
+        <p>No Saved Gradients</p>
+      ) : (
+        data.count.map((dat) => <BrowseGradientBlock color={dat} />)
+      )}
     </motion.div>
   );
 };
