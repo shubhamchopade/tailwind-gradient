@@ -24,7 +24,7 @@ export default [
     component: () => <SavedGradients />,
   },
   {
-    path: "/browse-gradients",
-    component: () => <BrowseGradient />,
+    path: "*",
+    component: () => <Home />,
   },
 ];

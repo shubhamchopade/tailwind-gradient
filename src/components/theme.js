@@ -33,5 +33,20 @@ export const H1 = styled.h1`
 `;
 
 export const StyledLink = styled.a`
-  ${tw`text-sm text-gray-500 cursor-pointer my-6 p-2`}
+  ${tw`text-sm text-gray-600 cursor-pointer my-6 p-2 active:underline`}
+  ${({ toggle }) => {
+    if (toggle) return tw`text-gray-800 underline`;
+    else return "";
+  }}
+`;
+
+export const BrowseLayout = styled.section`
+  ${tw`grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2`}
+`;
+export const BrowseGridContainer = styled.section`
+  ${tw`max-w-6xl mx-auto p-2 my-4`}
+
+  h2 {
+    ${tw`pl-2 text-gray-500 uppercase`}
+  }
 `;

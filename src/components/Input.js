@@ -34,7 +34,7 @@ const Input = ({ setIsLoggedIn }) => {
           .email("Email is invalid"),
         password: Yup.string()
           .required("Password is required")
-          .min(6, "Password is min 6 characters"),
+          .min(6, "Password should be min 6 characters"),
       })}
     >
       {(formik) => (

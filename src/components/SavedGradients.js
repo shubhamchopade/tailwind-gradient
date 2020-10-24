@@ -1,11 +1,12 @@
 import { motion } from "framer";
 import React, { useEffect, useState } from "react";
 import { firebase, projectFireStore } from "../config/firebase";
-import GradientBlock from "./GradientBlock";
+import BrowseGradientBlock from "./BrowseGradientBlock";
 import Loader from "./Loader";
 
 const SavedGradients = () => {
   let [data, setData] = useState([]);
+  let [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -15,6 +16,7 @@ const SavedGradients = () => {
         .get()
         .then((doc) => {
           setData(doc.data() ? doc.data() : null);
+          setIsLoading(false);
         });
     });
   }, []);
@@ -28,14 +30,13 @@ const SavedGradients = () => {
   //   });
   // }, []);
 
+  if (isLoading) return <Loader />;
+
   return (
     <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
       {console.log(data)}
-      {data.length != 0 ? (
-        data.count.map((dat) => <GradientBlock color={dat} />)
-      ) : (
-        <Loader />
-      )}
+      {data.length != 0 &&
+        data.count.map((dat) => <BrowseGradientBlock color={dat} />)}
     </motion.div>
   );
 };

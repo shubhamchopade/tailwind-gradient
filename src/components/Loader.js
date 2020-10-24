@@ -1,13 +1,14 @@
-import { Frame } from "framer";
+import { Frame, motion } from "framer";
 import React from "react";
-import { FaSpinner } from "react-icons/fa";
+import { FaCircleNotch, FaSpinner } from "react-icons/fa";
 import styled from "styled-components";
 import tw from "twin.macro";
 
-const StyledSpinner = styled(FaSpinner).attrs({
+const StyledSpinner = styled(FaCircleNotch).attrs({
   size: 60,
 })`
-  animation: spin 2s ease-in infinite;
+  ${tw`text-orange-500`}
+  animation: spin 2s ease-in-out infinite;
   @keyframes spin {
     0% {
       transform: rotate(0);
@@ -20,17 +21,9 @@ const StyledSpinner = styled(FaSpinner).attrs({
 
 const Loader = () => {
   return (
-    <div className="h-full grid place-items-center mt-64">
-      <Frame
-        center
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        backgroundColor="none"
-      >
-        <StyledSpinner />
-      </Frame>
-    </div>
+    <motion.div className="flex items-center h-screen justify-center">
+      <StyledSpinner />
+    </motion.div>
   );
 };
 
