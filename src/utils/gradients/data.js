@@ -19,3 +19,38 @@ export const colors = [
     color: ["teal", "gray", "pink"],
   },
 ];
+
+export const directions = [
+  {
+    name: "top",
+    direction: "t",
+  },
+  {
+    name: "top right",
+    direction: "tr",
+  },
+  {
+    name: "right",
+    direction: "r",
+  },
+  {
+    name: "bottom right",
+    direction: "br",
+  },
+  {
+    name: "bottom",
+    direction: "b",
+  },
+  {
+    name: "bottom left",
+    direction: "bl",
+  },
+  {
+    name: "left",
+    direction: "l",
+  },
+  {
+    name: "top left",
+    direction: "tl",
+  },
+];

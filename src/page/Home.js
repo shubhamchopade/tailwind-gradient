@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import RandomGradient from "../components/RandomGradient";
 import BrowseGradient from "../components/BrowseGradient";
 import { StyledLink } from "../components/theme";
+import { SwatchesPicker } from "react-color";
 
 const Home = () => {
   const [toggle, setToggle] = useState(true);
@@ -23,6 +24,7 @@ const Home = () => {
         </StyledLink>
       </div>
       {toggle ? <RandomGradient /> : <BrowseGradient />}
+      <SwatchesPicker />
     </div>
   );
 };

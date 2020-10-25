@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Link, NavLink } from "react-router-dom";
+import { GoArrowSmallUp } from "react-icons/go";
+import { FaLongArrowAltUp } from "react-icons/fa";
 
 export const ButtonPrimary = styled.button.attrs({
   className: "px-4 py-2 rounded",
@@ -49,4 +50,12 @@ export const BrowseGridContainer = styled.section`
   h2 {
     ${tw`pl-2 text-gray-500 uppercase`}
   }
+`;
+
+export const DirectionArrow = styled(FaLongArrowAltUp).attrs({
+  size: 15,
+  color: "#2a2a2a",
+})`
+  transform: rotate(${({ rotate }) => rotate});
+  ${tw`cursor-pointer hover:opacity-75`}
 `;
