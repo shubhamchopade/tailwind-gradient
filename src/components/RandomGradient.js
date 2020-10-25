@@ -25,43 +25,49 @@ const options = [
 const RandomGradient = () => {
   const [randomTo, setRandomTo] = useState();
   let [spaceBar, setSpaceBar] = useKeyPress(32);
-  let [randomColor, randomWeight, randomColor1, randomWeight1] = useRandom(
-    spaceBar,
-    colors,
-    weights
-  );
-  let [From, setFrom] = useState("red-300");
-  let [To, setTo] = useState("yellow-500");
+  let [
+    randomColorFrom,
+    randomWeightFrom,
+    randomColorTo,
+    randomWeightTo,
+  ] = useRandom(spaceBar, colors, weights);
+  const [gradientFrom, setGradientFrom] = useState();
+  const [gradientTo, setGradientTo] = useState();
 
-  const [context, setContext] = useState("t");
+  const [context, setContext] = useState("r");
+
+  const handleClick = () => {
+    setGradientFrom(`from-${randomColorFrom}-${randomWeightFrom}`);
+    setGradientTo(`to-${randomColorTo}-${randomWeightTo}`);
+  };
 
   useEffect(() => {
     handleClick();
-    return () => setSpaceBar(false);
+  }, [randomColorTo]);
+  useEffect(() => {
+    setSpaceBar(false);
   }, [spaceBar]);
 
-  const handleClick = () => {
-    setFrom(`${randomColor}-${randomWeight}`);
-    // console.log(randomColor, "from", randomWeight);
-    setTo(`${randomColor1}-${randomWeight1}`);
-    // console.log(randomColor1, "to", randomWeight1);
-    setRandomTo(`from-${From} to-${To}`);
-  };
-
-  // const handleDropdown = (e) => {
-  //   setGradientDirection(e.value);
-  // };
-  // const handleDirection = (e) => {
-  //   setGradientDirection("t");
-  // };
+  {
+    console.log(
+      "from",
+      randomColorFrom,
+      randomWeightFrom,
+      "to",
+      randomColorTo,
+      randomWeightTo
+    );
+  }
 
   return (
     <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
       <ArrowContext.Provider value={[context, setContext]}>
         <DirectionArrows />
 
-        <div className={`h-64 bg-gradient-to-${context} ${randomTo}`} />
-        {console.log(context)}
+        <motion.div
+          className={`h-64 bg-gradient-to-${context} ${gradientFrom} ${gradientTo} transition duration-500`}
+        />
+        {/* {console.log(context)} */}
         <div className="flex mx-auto justify-around max-w-xs items-center rounded p-2 bg-gray-200 my-4">
           <FaExclamationCircle />
           <p className="text-xs">

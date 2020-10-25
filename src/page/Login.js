@@ -51,7 +51,7 @@ const Login = () => {
       <motion.div
         initial={{ x: -100 }}
         animate={{ x: 0 }}
-        className="flex items-center justify-center flex-col"
+        className="flex items-center justify-center flex-col bg-blue-200 bg-opacity-25"
       >
         <h2 class="my-6 text-center text-xl leading-9 font-bold text-gray-700">
           Login to your account

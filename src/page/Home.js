@@ -4,7 +4,7 @@ import tw from "twin.macro";
 import RandomGradient from "../components/RandomGradient";
 import BrowseGradient from "../components/BrowseGradient";
 import { StyledLink } from "../components/theme";
-import { SwatchesPicker } from "react-color";
+import { SliderPicker, CirclePicker } from "react-color";
 
 const Home = () => {
   const [toggle, setToggle] = useState(true);
@@ -15,7 +15,7 @@ const Home = () => {
   console.log(toggle);
   return (
     <div>
-      <div className="flex justify-around max-w-6xl mx-auto">
+      <div className="flex justify-around max-w-6xl mx-auto ">
         <StyledLink onClick={handleRandom} toggle={toggle}>
           Generate Random Gradient
         </StyledLink>
@@ -24,7 +24,6 @@ const Home = () => {
         </StyledLink>
       </div>
       {toggle ? <RandomGradient /> : <BrowseGradient />}
-      <SwatchesPicker />
     </div>
   );
 };

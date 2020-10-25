@@ -57,5 +57,5 @@ export const DirectionArrow = styled(FaLongArrowAltUp).attrs({
   color: "#2a2a2a",
 })`
   transform: rotate(${({ rotate }) => rotate});
-  ${tw`cursor-pointer hover:opacity-75`}
+  ${tw`cursor-pointer hover:opacity-75 rounded-full active:bg-red-400`}
 `;
