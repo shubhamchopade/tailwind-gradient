@@ -2,9 +2,7 @@ import React, { useState, useContext } from "react";
 import { ArrowContext } from "../store/AppContext";
 import { DirectionArrow } from "./theme";
 
-const DirectionArrows = () => {
-  const [context, setContext] = useContext(ArrowContext);
-
+const DirectionArrows = ({ setContext }) => {
   return (
     <div className="w-12 mx-auto">
       <div className="flex justify-between">

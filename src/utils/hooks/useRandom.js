@@ -1,10 +1,10 @@
 const { useEffect, useState } = require("react");
 
 const useRandom = (spaceBar, colors, weights) => {
-  const [randomColorTo, setRandomColorTo] = useState("");
-  const [randomWeightTo, setRandomWeightTo] = useState("");
-  const [randomColorFrom, setRandomColorFrom] = useState("");
-  const [randomWeightFrom, setRandomWeightFrom] = useState("");
+  const [randomColorFrom, setRandomColorFrom] = useState("red");
+  const [randomWeightFrom, setRandomWeightFrom] = useState("400");
+  const [randomColorTo, setRandomColorTo] = useState("yellow");
+  const [randomWeightTo, setRandomWeightTo] = useState("500");
 
   const randomColorToNumber = Math.ceil(Math.random() * colors.length - 1);
   const randomWeightToNumber = Math.ceil(Math.random() * weights.length - 1);

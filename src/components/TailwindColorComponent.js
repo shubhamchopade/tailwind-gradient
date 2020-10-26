@@ -1,17 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaWeightHanging } from "react-icons/fa";
-import { GradientFromContext } from "../store/AppContext";
 import TailwindColorBlock from "./TailwindColorBlock";
 
-const TailwindColorComponent = () => {
+const TailwindColorComponent = ({ value }) => {
   const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-
-  const [
-    randomColorFrom,
-    randomWeightFrom,
-    setRandomColorFrom,
-    setRandomWeightFrom,
-  ] = useContext(GradientFromContext);
 
   const colors = [
     {
@@ -45,13 +36,14 @@ const TailwindColorComponent = () => {
   ];
 
   return (
-    <div className="grid grid-cols-9 max-w-xl">
+    <div className="grid grid-cols-9 min-w-xl rounded">
       {colors.map((col) =>
         col.weight.map((wei) => (
           <>
             <TailwindColorBlock
               color={col.name}
               weight={wei}
+              value={value}
             ></TailwindColorBlock>
           </>
         ))

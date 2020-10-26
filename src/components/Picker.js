@@ -1,23 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { GradientFromContext } from "../store/AppContext";
-import { ButtonPrimary } from "./theme";
-import Select from "react-select";
 import TailwindColorComponent from "./TailwindColorComponent";
 
-const Picker = () => {
+const Picker = ({ value }) => {
   const [
     randomColorFrom,
     randomWeightFrom,
     setRandomColorFrom,
     setRandomWeightFrom,
+    randomColorTo,
+    randomWeightTo,
   ] = useContext(GradientFromContext);
+
+  const [showTailwindColorComponent, setShowTailwindColorComponent] = useState(
+    false
+  );
   return (
-    <>
+    <div className="m-0">
       <div
-        className={`w-12 h-12 bg-${randomColorFrom}-${randomWeightFrom} p-2`}
+        className={
+          value === "from"
+            ? `w-12 h-12 bg-${randomColorFrom}-${randomWeightFrom} p-2`
+            : `w-12 h-12 bg-${randomColorTo}-${randomWeightTo} p-2`
+        }
+        onClick={() => setShowTailwindColorComponent((prev) => !prev)}
       ></div>
-      <TailwindColorComponent />
-    </>
+      {showTailwindColorComponent && <TailwindColorComponent value={value} />}
+    </div>
   );
 };
 

@@ -14,11 +14,6 @@ import PickerComponent from "./PickerComponent";
 
 const colors = ["blue", "yellow", "green", "gray", "red", "orange"];
 const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-const options = [
-  { value: "r", label: "Right" },
-  { value: "l", label: "Left" },
-  { value: "t", label: "Top" },
-];
 
 const RandomGradient = () => {
   const [randomTo, setRandomTo] = useState();
@@ -67,31 +62,31 @@ const RandomGradient = () => {
           randomWeightFrom,
           setRandomColorFrom,
           setRandomWeightFrom,
+          randomColorTo,
+          randomWeightTo,
+          setRandomColorTo,
+          setRandomWeightTo,
         ]}
       >
-        <PickerComponent />
-      </GradientFromContext.Provider>
-      <ArrowContext.Provider value={[context, setContext]}>
-        <DirectionArrows />
+        <ArrowContext.Provider value={[context, setContext]}>
+          <PickerComponent />
 
-        <motion.div
-          className={`h-64 bg-gradient-to-${context} ${gradientFrom} ${gradientTo} transition duration-500`}
-        />
-        {/* {console.log(context)} */}
-        <div className="flex mx-auto justify-around max-w-xs items-center rounded p-2 bg-gray-200 my-4">
-          <FaExclamationCircle />
-          <p className="text-xs">
-            Press Spacebar to Generate a random Gradient
-          </p>
-        </div>
-        <ButtonPrimary
-          className="sm:hidden flex mx-auto justify-around max-w-xs items-center my-2"
-          primary
-          onClick={handleClick}
-        >
-          Generate
-        </ButtonPrimary>
-      </ArrowContext.Provider>
+          <motion.div
+            className={`h-64 bg-gradient-to-${context} ${gradientFrom} ${gradientTo} transition duration-500`}
+          />
+        </ArrowContext.Provider>
+      </GradientFromContext.Provider>
+      <div className="flex mx-auto justify-around max-w-xs items-center rounded p-2 bg-gray-200 my-4">
+        <FaExclamationCircle />
+        <p className="text-xs">Press Spacebar to Generate a random Gradient</p>
+      </div>
+      <ButtonPrimary
+        className="sm:hidden flex mx-auto justify-around max-w-xs items-center my-2"
+        primary
+        onClick={handleClick}
+      >
+        Generate
+      </ButtonPrimary>
     </motion.div>
   );
 };
