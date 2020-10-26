@@ -5,6 +5,7 @@ import tw from "twin.macro";
 import { firebase } from "../config/firebase";
 import SavedGradients from "../components/SavedGradients";
 import { AppContext } from "../store/AppContext";
+import useGetDocument from "../utils/hooks/useGetDocument";
 
 const StyledDiv = styled.div`
   ${tw`grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2`}
@@ -13,6 +14,8 @@ const StyledDiv = styled.div`
 const Gallery = () => {
   const [userData, getCurrentUserData] = useState(null);
   const [isLoggedin] = useContext(AppContext);
+  const gradient = useGetDocument("blue");
+  gradient != null && console.log(gradient);
 
   return (
     <>

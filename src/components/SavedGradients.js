@@ -3,43 +3,42 @@ import React, { useEffect, useState } from "react";
 import { firebase, projectFireStore } from "../config/firebase";
 import BrowseGradientBlock from "./BrowseGradientBlock";
 import Loader from "./Loader";
+import { SavedContext } from "../store/AppContext";
+import SavedGradientBlock from "./SavedGradientBlock";
 
 const SavedGradients = () => {
-  let [data, setData] = useState([]);
-  let [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      projectFireStore
-        .collection("users")
-        .doc(user.uid)
-        .get()
-        .then((doc) => {
-          setData(doc.data() ? doc.data() : null);
-          setIsLoading(false);
-        });
-    });
-  }, []);
+  let [isLoading, setIsLoading] = useState(false);
+  let [gradientCount, setGradientCount] = useState();
+  let [gradientData, setGradientData] = useState();
 
   // useEffect(() => {
   //   firebase.auth().onAuthStateChanged((user) => {
-  //     projectFireStore.collection("users").doc(user.uid).set({
-  //       email: user.email,
-  //       count: data,
-  //     });
+  //     projectFireStore
+  //       .collection("users")
+  //       .doc(user.uid)
+  //       .get()
+  //       .then((doc) => {
+  //         setGradientData(doc.data().count ? doc.data().count : null);
+  //         console.log(gradientData);
+  //         setIsLoading(false);
+  //       });
   //   });
-  // }, []);
+  // }, [gradientCount]);
 
   if (isLoading) return <Loader />;
 
+  const handleGradientData = () => {
+    setGradientCount([1, 2, 3, 4, 5]);
+    setGradientData([7, 8, 9]);
+  };
+
   return (
-    <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
-      {data === null ? (
-        <p>No Saved Gradients</p>
-      ) : (
-        data.count.map((dat) => <BrowseGradientBlock color={dat} />)
-      )}
-    </motion.div>
+    <SavedContext.Provider
+      value={[gradientCount, setGradientCount, gradientData, setGradientData]}
+    >
+      <SavedGradientBlock />
+      <button onClick={handleGradientData}>Update on Cloud Data</button>
+    </SavedContext.Provider>
   );
 };
 

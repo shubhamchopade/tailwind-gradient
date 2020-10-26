@@ -6,3 +6,4 @@ export const ArrowContext = React.createContext();
 export const GradientFromContext = React.createContext();
 export const GradientToContext = React.createContext();
 export const PickerContext = React.createContext();
+export const SavedContext = React.createContext();
