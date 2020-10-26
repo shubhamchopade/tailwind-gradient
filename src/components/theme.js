@@ -53,7 +53,7 @@ export const BrowseGridContainer = styled.section`
 `;
 
 export const DirectionArrow = styled(FaLongArrowAltUp).attrs({
-  size: 35,
+  size: 40,
   color: "#2a2a2a",
 })`
   transform: rotate(${({ rotate }) => rotate});
@@ -74,7 +74,7 @@ export const PickerContainer = styled.div`
 `;
 
 export const ColorPickerContainer = styled.section`
-  ${tw`w-32 cursor-pointer`}
+  ${tw`sm:w-32 w-24 cursor-pointer`}
 
   p {
     ${tw`text-gray-500 text-xs`}
@@ -85,7 +85,7 @@ export const ColorPickerContainer = styled.section`
     ${(props) => props.showDirectionArrows && tw`bg-gray-200 `}
 
     div {
-      ${tw`h-full text-center`}
+      ${tw`sm:w-full w-8 text-center`}
     }
     h4 {
       ${tw`text-gray-800 text-xs my-auto uppercase tracking-wider`}

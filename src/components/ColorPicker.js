@@ -3,7 +3,7 @@ import { GradientFromContext } from "../store/AppContext";
 import TailwindColorComponent from "./TailwindColorComponent";
 import { ColorPickerContainer } from "./theme";
 
-const Picker = ({ value }) => {
+const ColorPicker = ({ value }) => {
   const [
     randomColorFrom,
     randomWeightFrom,
@@ -45,4 +45,4 @@ const Picker = ({ value }) => {
   );
 };
 
-export default Picker;
+export default ColorPicker;

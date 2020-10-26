@@ -87,7 +87,7 @@ const RandomGradient = () => {
           <PickerComponent />
 
           <motion.div
-            className={`h-64 bg-gradient-to-${context} ${gradientFrom} ${gradientTo} transition duration-500`}
+            className={`h-screen bg-gradient-to-${context} ${gradientFrom} ${gradientTo} transition duration-500`}
           />
         </ArrowContext.Provider>
       </GradientFromContext.Provider>

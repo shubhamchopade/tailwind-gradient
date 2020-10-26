@@ -1,13 +1,13 @@
 import React from "react";
 import DirectionPicker from "./DirectionPicker";
-import Picker from "./Picker";
+import ColorPicker from "./ColorPicker";
 
 const PickerComponent = () => {
   return (
     <div className="grid grid-cols-3 place-items-center m-2">
       <DirectionPicker />
-      <Picker value="from" />
-      <Picker value="to" />
+      <ColorPicker value="from" />
+      <ColorPicker value="to" />
     </div>
   );
 };

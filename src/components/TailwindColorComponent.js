@@ -48,7 +48,7 @@ const TailwindColorComponent = ({ value }) => {
     <motion.div
       initial={{ y: -10 }}
       animate={{ y: 0 }}
-      final={{ y: 10 }}
+      final={{ y: -10 }}
       className="grid grid-cols-9 w-32 mt-2 absolute rounded"
     >
       {colors.map((col) =>
