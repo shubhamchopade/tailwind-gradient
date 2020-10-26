@@ -17,6 +17,11 @@ const Picker = ({ value }) => {
   );
   return (
     <div className="m-0">
+      <p>
+        {value === "from"
+          ? `from-${randomColorFrom} - ${randomWeightFrom}`
+          : `to-${randomColorTo}-${randomWeightTo}`}
+      </p>
       <div
         className={
           value === "from"
