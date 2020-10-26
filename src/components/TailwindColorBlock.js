@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { FaWeightHanging } from "react-icons/fa";
+import React, { useContext } from "react";
 import { GradientFromContext } from "../store/AppContext";
 
 const TailwindColorBlock = (props) => {

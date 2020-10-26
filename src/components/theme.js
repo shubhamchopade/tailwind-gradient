@@ -72,3 +72,26 @@ export const PickerContainer = styled.div`
   ${tw`w-16 border h-10 active:bg-gray-200 `}
   ${(props) => props.showDirectionArrows && tw`bg-gray-200 `}
 `;
+
+export const ColorPickerContainer = styled.section`
+  ${tw`w-32 cursor-pointer`}
+
+  p {
+    ${tw`text-gray-500 text-xs`}
+  }
+
+  main {
+    ${tw`grid grid-cols-2 h-16 border rounded`}
+    ${(props) => props.showDirectionArrows && tw`bg-gray-200 `}
+
+    div {
+      ${tw`h-full text-center`}
+    }
+    h4 {
+      ${tw`text-gray-800 my-auto text-xs uppercase tracking-wider`}
+    }
+    h2 {
+      ${tw`text-gray-600 my-auto font-bold text-2xl tracking-tight`}
+    }
+  }
+`;

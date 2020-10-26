@@ -1,6 +1,6 @@
 const { useEffect, useState } = require("react");
 
-const useRandom = (spaceBar, colors, weights) => {
+const useRandom = (spaceBar, colors, weights, gradientFrom) => {
   const [randomColorFrom, setRandomColorFrom] = useState("red");
   const [randomWeightFrom, setRandomWeightFrom] = useState("400");
   const [randomColorTo, setRandomColorTo] = useState("yellow");

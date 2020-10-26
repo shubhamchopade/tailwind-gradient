@@ -1,6 +1,6 @@
-import { Frame, motion } from "framer";
+import { motion } from "framer";
 import React from "react";
-import { FaCircleNotch, FaSpinner } from "react-icons/fa";
+import { FaCircleNotch } from "react-icons/fa";
 import styled from "styled-components";
 import tw from "twin.macro";
 

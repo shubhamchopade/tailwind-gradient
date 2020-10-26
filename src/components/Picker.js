@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { GradientFromContext } from "../store/AppContext";
 import TailwindColorComponent from "./TailwindColorComponent";
+import { ColorPickerContainer } from "./theme";
 
 const Picker = ({ value }) => {
   const [
@@ -16,20 +17,30 @@ const Picker = ({ value }) => {
     false
   );
   return (
-    <div className="m-0">
-      <p>
-        {value === "from"
-          ? `from-${randomColorFrom} - ${randomWeightFrom}`
-          : `to-${randomColorTo}-${randomWeightTo}`}
-      </p>
-      <div
-        className={
-          value === "from"
-            ? `w-12 h-12 bg-${randomColorFrom}-${randomWeightFrom} p-2`
-            : `w-12 h-12 bg-${randomColorTo}-${randomWeightTo} p-2`
-        }
-        onClick={() => setShowTailwindColorComponent((prev) => !prev)}
-      ></div>
+    <div className="">
+      <ColorPickerContainer>
+        <p>{value === "from" ? "from" : "to"}</p>
+
+        <main>
+          <div
+            className={
+              value === "from"
+                ? `rounded bg-${randomColorFrom}-${randomWeightFrom} p-2`
+                : `rounded bg-${randomColorTo}-${randomWeightTo} p-2`
+            }
+            onClick={() => setShowTailwindColorComponent((prev) => !prev)}
+          ></div>
+          <div>
+            <h4>
+              {value === "from" ? `${randomColorFrom}` : `${randomColorTo}`}
+            </h4>
+            <h2>
+              {value === "from" ? `${randomWeightFrom}` : `${randomWeightTo}`}
+            </h2>
+          </div>
+        </main>
+      </ColorPickerContainer>
+
       {showTailwindColorComponent && <TailwindColorComponent value={value} />}
     </div>
   );

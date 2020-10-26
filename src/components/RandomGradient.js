@@ -16,8 +16,9 @@ const colors = ["blue", "yellow", "green", "gray", "red", "orange"];
 const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 const RandomGradient = () => {
-  const [randomTo, setRandomTo] = useState();
   let [spaceBar, setSpaceBar] = useKeyPress(32);
+  const [gradientFrom, setGradientFrom] = useState();
+  const [gradientTo, setGradientTo] = useState();
   let [
     randomColorFrom,
     randomWeightFrom,
@@ -28,20 +29,24 @@ const RandomGradient = () => {
     setRandomColorTo,
     setRandomWeightTo,
   ] = useRandom(spaceBar, colors, weights);
-  const [gradientFrom, setGradientFrom] = useState();
-  const [gradientTo, setGradientTo] = useState();
 
   const [context, setContext] = useState("r");
+
+  useEffect(() => {
+    handleClick();
+    setSpaceBar(false);
+  }, [
+    randomColorFrom,
+    randomColorTo,
+    randomWeightFrom,
+    randomWeightTo,
+    spaceBar,
+  ]);
 
   const handleClick = () => {
     setGradientFrom(`from-${randomColorFrom}-${randomWeightFrom}`);
     setGradientTo(`to-${randomColorTo}-${randomWeightTo}`);
   };
-
-  useEffect(() => {
-    handleClick();
-    setSpaceBar(false);
-  }, [randomColorTo, randomColorFrom, spaceBar, randomWeightFrom]);
 
   {
     console.log(
