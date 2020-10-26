@@ -20,7 +20,16 @@ const useRandom = (spaceBar, colors, weights) => {
     // console.log(weights[randomWeightFromNumber]);
   }, [spaceBar]);
 
-  return [randomColorFrom, randomWeightFrom, randomColorTo, randomWeightTo];
+  return [
+    randomColorFrom,
+    randomWeightFrom,
+    randomColorTo,
+    randomWeightTo,
+    setRandomColorFrom,
+    setRandomWeightFrom,
+    setRandomColorTo,
+    setRandomWeightTo,
+  ];
 };
 
 export default useRandom;

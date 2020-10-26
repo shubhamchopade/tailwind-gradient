@@ -2,17 +2,15 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { ButtonPrimary, DirectionArrow, StyledLink } from "./theme";
 import useKeyPress from "../utils/hooks/useKeyPress";
 import { motion } from "framer";
-import {
-  FaArrowAltCircleDown,
-  FaArrowAltCircleUp,
-  FaExclamationCircle,
-} from "react-icons/fa";
+import { FaExclamationCircle } from "react-icons/fa";
 import useRandom from "../utils/hooks/useRandom";
-import { direction } from "../utils/gradients/data";
-import Select from "react-select";
-import { GoArrowSmallUp } from "react-icons/go";
 import DirectionArrows from "./DirectionArrows";
-import { ArrowContext } from "../store/AppContext";
+import {
+  ArrowContext,
+  GradientFromContext,
+  GradientToContext,
+} from "../store/AppContext";
+import PickerComponent from "./PickerComponent";
 
 const colors = ["blue", "yellow", "green", "gray", "red", "orange"];
 const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
@@ -30,6 +28,10 @@ const RandomGradient = () => {
     randomWeightFrom,
     randomColorTo,
     randomWeightTo,
+    setRandomColorFrom,
+    setRandomWeightFrom,
+    setRandomColorTo,
+    setRandomWeightTo,
   ] = useRandom(spaceBar, colors, weights);
   const [gradientFrom, setGradientFrom] = useState();
   const [gradientTo, setGradientTo] = useState();
@@ -43,10 +45,8 @@ const RandomGradient = () => {
 
   useEffect(() => {
     handleClick();
-  }, [randomColorTo]);
-  useEffect(() => {
     setSpaceBar(false);
-  }, [spaceBar]);
+  }, [randomColorTo, randomColorFrom, spaceBar, randomWeightFrom]);
 
   {
     console.log(
@@ -61,6 +61,16 @@ const RandomGradient = () => {
 
   return (
     <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
+      <GradientFromContext.Provider
+        value={[
+          randomColorFrom,
+          randomWeightFrom,
+          setRandomColorFrom,
+          setRandomWeightFrom,
+        ]}
+      >
+        <PickerComponent />
+      </GradientFromContext.Provider>
       <ArrowContext.Provider value={[context, setContext]}>
         <DirectionArrows />
 
