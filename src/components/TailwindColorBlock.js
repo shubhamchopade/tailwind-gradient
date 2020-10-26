@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GradientFromContext } from "../store/AppContext";
+import { ColorBlock } from "./theme";
 
 const TailwindColorBlock = (props) => {
   const [
@@ -15,8 +16,8 @@ const TailwindColorBlock = (props) => {
 
   return (
     <>
-      <div
-        className={`bg-${props.color}-${props.weight} h-4 transform hover:scale-125`}
+      <ColorBlock
+        className={`bg-${props.color}-${props.weight} h-4 transform`}
         onClick={() => {
           if (props.value === "from") {
             setRandomColorFrom(props.color);
@@ -26,7 +27,7 @@ const TailwindColorBlock = (props) => {
             setRandomWeightTo(props.weight);
           }
         }}
-      ></div>
+      ></ColorBlock>
     </>
   );
 };

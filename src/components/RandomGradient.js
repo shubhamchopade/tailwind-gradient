@@ -12,7 +12,17 @@ import {
 } from "../store/AppContext";
 import PickerComponent from "./PickerComponent";
 
-const colors = ["blue", "yellow", "green", "gray", "red", "orange"];
+const colors = [
+  "blue",
+  "yellow",
+  "green",
+  "gray",
+  "red",
+  "orange",
+  "purple",
+  "pink",
+  "indigo",
+];
 const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 const RandomGradient = () => {

@@ -21,14 +21,13 @@ const Picker = ({ value }) => {
       <ColorPickerContainer>
         <p>{value === "from" ? "from" : "to"}</p>
 
-        <main>
+        <main onClick={() => setShowTailwindColorComponent((prev) => !prev)}>
           <div
             className={
               value === "from"
                 ? `rounded bg-${randomColorFrom}-${randomWeightFrom} p-2`
                 : `rounded bg-${randomColorTo}-${randomWeightTo} p-2`
             }
-            onClick={() => setShowTailwindColorComponent((prev) => !prev)}
           ></div>
           <div>
             <h4>

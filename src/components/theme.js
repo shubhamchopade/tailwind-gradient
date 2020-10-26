@@ -53,7 +53,7 @@ export const BrowseGridContainer = styled.section`
 `;
 
 export const DirectionArrow = styled(FaLongArrowAltUp).attrs({
-  size: 70,
+  size: 35,
   color: "#2a2a2a",
 })`
   transform: rotate(${({ rotate }) => rotate});
@@ -88,10 +88,16 @@ export const ColorPickerContainer = styled.section`
       ${tw`h-full text-center`}
     }
     h4 {
-      ${tw`text-gray-800 my-auto text-xs uppercase tracking-wider`}
+      ${tw`text-gray-800 text-xs my-auto uppercase tracking-wider`}
     }
     h2 {
-      ${tw`text-gray-600 my-auto font-bold text-2xl tracking-tight`}
+      ${tw`text-gray-600 font-bold text-2xl tracking-tight`}
     }
+  }
+`;
+
+export const ColorBlock = styled.div`
+  &:hover {
+    border: 1px solid #fff;
   }
 `;
