@@ -5,7 +5,7 @@ import Input from "../components/Input";
 import { Frame, motion } from "framer";
 import styled from "styled-components";
 import { FaGoogle } from "react-icons/fa";
-import Signup from "../components/Signup";
+import { ButtonPrimary } from "../components/theme";
 
 const Button = styled(motion.button)`
   width: 270px;
@@ -56,15 +56,10 @@ const Login = () => {
         <h2 class="my-6 text-center text-xl leading-9 font-bold text-gray-700">
           Login to your account
         </h2>
-        <Button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={handleGoogle}
-          className=""
-        >
+        <ButtonPrimary whileTap={{ scale: 0.9 }} onClick={handleGoogle} primary>
           <FaGoogle />
           Continue with Google
-        </Button>
+        </ButtonPrimary>
         <p className="text-center text-gray-500 my-4">OR</p>
         <Input setIsLoggedIn={setIsLoggedIn} />
       </motion.div>

@@ -15,7 +15,7 @@ const Header = () => {
       .auth()
       .signOut()
       .then((res) => {
-        history.replace("/login");
+        history.replace("/tailwind-gradient/login");
       })
       .catch((e) => console.log(e.response.data));
   };
@@ -45,7 +45,7 @@ const Header = () => {
             {isLoggedIn ? (
               <ButtonPrimary onClick={logout}>Logout</ButtonPrimary>
             ) : (
-              <Link to="/login">
+              <Link to="/tailwind-gradient/login">
                 <ButtonPrimary>Login</ButtonPrimary>
               </Link>
             )}

@@ -5,11 +5,10 @@ import { GoArrowSmallUp } from "react-icons/go";
 import { FaLongArrowAltUp } from "react-icons/fa";
 
 export const ButtonPrimary = styled.button.attrs({
-  className: "px-4 py-2 rounded",
+  className: "px-4 py-2 rounded flex items-center justify-around",
 })`
   ${(props) => {
-    if (props.primary) return tw`bg-red-200`;
-    else if (props.secondary) return tw`border border-blue-200`;
+    if (props.primary) return tw`bg-blue-500 text-white w-64`;
     else return tw`border border-blue-200`;
   }}
 `;

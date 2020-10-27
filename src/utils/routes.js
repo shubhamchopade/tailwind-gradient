@@ -13,7 +13,7 @@ export default [
     component: () => <Home />,
   },
   {
-    path: "/login",
+    path: "/tailwind-gradient/login",
     component: () => <Login />,
   },
   {
@@ -30,6 +30,6 @@ export default [
   },
   {
     path: "*",
-    component: () => <Home />,
+    component: () => <h1>Not found</h1>,
   },
 ];
