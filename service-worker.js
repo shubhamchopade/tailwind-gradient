@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tailwind-gradient/precache-manifest.1342b78ea5e11fe3fd930b2f57c3f25d.js"
+  "/tailwind-gradient/precache-manifest.13162fb14032b36c35967a5b85fdc9b2.js"
 );
 
 self.addEventListener('message', (event) => {
