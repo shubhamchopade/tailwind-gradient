@@ -38,8 +38,8 @@ const Input = ({ setIsLoggedIn }) => {
       })}
     >
       {(formik) => (
-        <div class="flex w-3/12 items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
-          <div class="max-w-md w-full">
+        <div class="flex min-w-full items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
+          <div class="max-w-xs w-full">
             <div></div>
             <Form class="">
               <input type="hidden" name="remember" value="true" />
@@ -67,21 +67,7 @@ const Input = ({ setIsLoggedIn }) => {
               </div>
 
               <div class="mt-6 flex items-center justify-between">
-                <div class="flex items-center">
-                  <input
-                    id="remember_me"
-                    type="checkbox"
-                    class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
-                  />
-                  <label
-                    for="remember_me"
-                    class="ml-2 block text-sm leading-5 text-gray-900"
-                  >
-                    Remember me
-                  </label>
-                </div>
-
-                <div class="text-sm leading-5">
+                <div class="text-xs leading-5">
                   <a
                     href="#"
                     class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"

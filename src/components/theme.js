@@ -3,15 +3,17 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { GoArrowSmallUp } from "react-icons/go";
 import { FaLongArrowAltUp } from "react-icons/fa";
+import { motion } from "framer";
 
-export const ButtonPrimary = styled.button.attrs({
+export const ButtonPrimary = styled(motion.button).attrs({
   className: "px-4 py-2 rounded flex items-center justify-around",
 })`
   ${(props) => {
-    if (props.primary) return tw`bg-blue-500 text-white w-64`;
+    if (props.primary) return tw`bg-blue-500 text-white max-w-xs w-full`;
     else return tw`border border-blue-200`;
   }}
 `;
+
 export const List = styled.ul`
   ${tw`flex m-2 justify-between items-center`}
 
@@ -25,6 +27,11 @@ export const List = styled.ul`
     &:active {
       ${tw`underline`}
     }
+  }
+
+  div {
+    ${tw`px-2 py-1 cursor-pointer active:bg-gray-100`}
+    ${({ toggle }) => (toggle ? tw`bg-gray-200 rounded-xl` : "")}
   }
 `;
 
@@ -98,5 +105,15 @@ export const ColorPickerContainer = styled.section`
 export const ColorBlock = styled.div`
   &:hover {
     border: 1px solid #fff;
+  }
+`;
+
+export const NavUserInfo = styled.div`
+  ${tw`m-auto flex items-center`}
+  p {
+    ${tw`text-xs `}
+  }
+  img {
+    ${tw`rounded-full ml-2 w-12`}
   }
 `;

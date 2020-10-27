@@ -7,16 +7,6 @@ import styled from "styled-components";
 import { FaGoogle } from "react-icons/fa";
 import { ButtonPrimary } from "../components/theme";
 
-const Button = styled(motion.button)`
-  width: 270px;
-  height: 50px;
-  padding: 1rem;
-  background: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`;
-
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,7 +41,7 @@ const Login = () => {
       <motion.div
         initial={{ x: -100 }}
         animate={{ x: 0 }}
-        className="flex items-center justify-center flex-col bg-blue-200 bg-opacity-25"
+        className="flex items-center justify-center flex-col bg-opacity-25"
       >
         <h2 class="my-6 text-center text-xl leading-9 font-bold text-gray-700">
           Login to your account
