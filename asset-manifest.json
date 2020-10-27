@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/tailwind-gradient/static/css/main.b487dae8.chunk.css",
-    "main.js": "/tailwind-gradient/static/js/main.bea3d437.chunk.js",
-    "main.js.map": "/tailwind-gradient/static/js/main.bea3d437.chunk.js.map",
+    "main.js": "/tailwind-gradient/static/js/main.0d8d9fe8.chunk.js",
+    "main.js.map": "/tailwind-gradient/static/js/main.0d8d9fe8.chunk.js.map",
     "runtime-main.js": "/tailwind-gradient/static/js/runtime-main.797de252.js",
     "runtime-main.js.map": "/tailwind-gradient/static/js/runtime-main.797de252.js.map",
     "static/js/2.40c5beda.chunk.js": "/tailwind-gradient/static/js/2.40c5beda.chunk.js",
     "static/js/2.40c5beda.chunk.js.map": "/tailwind-gradient/static/js/2.40c5beda.chunk.js.map",
     "index.html": "/tailwind-gradient/index.html",
-    "precache-manifest.7c58a8ecc2d9ae8a17dfcc7f23e72447.js": "/tailwind-gradient/precache-manifest.7c58a8ecc2d9ae8a17dfcc7f23e72447.js",
+    "precache-manifest.f941f6225f532de777784c30db4a1afb.js": "/tailwind-gradient/precache-manifest.f941f6225f532de777784c30db4a1afb.js",
     "service-worker.js": "/tailwind-gradient/service-worker.js",
     "static/css/main.b487dae8.chunk.css.map": "/tailwind-gradient/static/css/main.b487dae8.chunk.css.map",
     "static/js/2.40c5beda.chunk.js.LICENSE.txt": "/tailwind-gradient/static/js/2.40c5beda.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.797de252.js",
     "static/js/2.40c5beda.chunk.js",
     "static/css/main.b487dae8.chunk.css",
-    "static/js/main.bea3d437.chunk.js"
+    "static/js/main.0d8d9fe8.chunk.js"
   ]
 }
