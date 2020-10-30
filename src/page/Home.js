@@ -6,29 +6,22 @@ import BrowseGradient from "../components/BrowseGradient";
 import { StyledLink } from "../components/theme";
 
 const Home = () => {
-  const [toggle, setToggle] = useState("random");
+  const [toggle, setToggle] = useState(true);
 
-  const handleRandom = () => setToggle("random");
-  const handleBrowse = () => setToggle("browse");
+  const handleRandom = () => setToggle(true);
+  const handleBrowse = () => setToggle(false);
 
-  console.log(toggle);
   return (
     <div>
-      <div className="flex justify-around max-w-6xl">
-        <StyledLink
-          onClick={handleRandom}
-          className={toggle === "random" && "underline"}
-        >
+      <div className="flex justify-around max-w-6xl mx-auto ">
+        <StyledLink onClick={handleRandom} toggle={toggle}>
           Generate Random Gradient
         </StyledLink>
-        <StyledLink
-          onClick={handleBrowse}
-          className={toggle !== "random" && "underline"}
-        >
+        <StyledLink onClick={handleBrowse} toggle={!toggle}>
           Browse Gradients
         </StyledLink>
       </div>
-      {toggle === "random" ? <RandomGradient /> : <BrowseGradient />}
+      {toggle ? <RandomGradient /> : <BrowseGradient />}
     </div>
   );
 };

@@ -43,7 +43,7 @@ function App() {
         <Header />
         <Switch>
           {routes.map((route, index) => {
-            if (route.path === "/login") {
+            if (route.path === "/tailwind-gradient/login") {
               return (
                 <GuestRoute
                   key={index}

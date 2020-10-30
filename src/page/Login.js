@@ -5,22 +5,13 @@ import Input from "../components/Input";
 import { Frame, motion } from "framer";
 import styled from "styled-components";
 import { FaGoogle } from "react-icons/fa";
-
-const Button = styled(motion.button)`
-  width: 250px;
-  height: 50px;
-  padding: 1rem;
-  background: lightblue;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`;
+import { ButtonPrimary } from "../components/theme";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const history = useHistory();
-
+  const provider = new firebase.auth.GoogleAuthProvider();
   const handleGoogle = () => {
     firebase
       .auth()
@@ -41,24 +32,25 @@ const Login = () => {
       });
   };
 
-  const provider = new firebase.auth.GoogleAuthProvider();
-
   if (isLoggedIn) {
     history.replace("/");
   }
 
   return (
     <div>
-      <Button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={handleGoogle}
-        className=""
+      <motion.div
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        className="flex items-center justify-center flex-col bg-opacity-25"
       >
-        <FaGoogle />
-        Continue with Google
-      </Button>
-      <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
+        <h2 class="my-6 text-center text-xl leading-9 font-bold text-gray-700">
+          Login to your account
+        </h2>
+        <ButtonPrimary whileTap={{ scale: 0.9 }} onClick={handleGoogle} primary>
+          <FaGoogle />
+          Continue with Google
+        </ButtonPrimary>
+        <p className="text-center text-gray-500 my-4">OR</p>
         <Input setIsLoggedIn={setIsLoggedIn} />
       </motion.div>
     </div>

@@ -12,6 +12,8 @@ function useKeyPress(keycode) {
 
   useEffect(() => {
     window.addEventListener("keydown", downHandler);
+
+    return () => window.removeEventListener("keydown", downHandler);
     // window.addEventListener("keyup", upHandler);
   }, []);
 

@@ -1,7 +1,8 @@
 {
-    "name": "react-styled-tailwind",
+    "name": "tailwind-gradients",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://shubhamchopade.github.io/tailwind-gradient/",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
@@ -22,6 +23,7 @@
     "scripts": {
         "build:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
         "watch:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
+        "deploy": "gh-pages -d build",
         "start": "npm run watch:css & react-scripts start",
         "build": "npm run build:css & react-scripts build",
         "test": "react-scripts test",
@@ -45,6 +47,7 @@
     "devDependencies": {
         "autoprefixer": "^9.7.6",
         "babel-plugin-macros": "^2.8.0",
+        "gh-pages": "^3.1.0",
         "postcss-cli": "^7.1.0",
         "tailwind.macro": "^0.5.10",
         "tailwindcss": "^1.9.1",

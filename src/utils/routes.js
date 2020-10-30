@@ -4,6 +4,7 @@ import Login from "../page/Login";
 import Gallery from "../page/Gallery";
 import SavedGradients from "../components/SavedGradients";
 import BrowseGradient from "../components/BrowseGradient";
+import Signup from "../components/Signup";
 
 export default [
   {
@@ -12,8 +13,12 @@ export default [
     component: () => <Home />,
   },
   {
-    path: "/login",
+    path: "/tailwind-gradient/login",
     component: () => <Login />,
+  },
+  {
+    path: "/signup",
+    component: () => <Signup />,
   },
   {
     path: "/explore",
@@ -24,7 +29,7 @@ export default [
     component: () => <SavedGradients />,
   },
   {
-    path: "/browse-gradients",
-    component: () => <BrowseGradient />,
+    path: "*",
+    component: () => <h1>Not found</h1>,
   },
 ];

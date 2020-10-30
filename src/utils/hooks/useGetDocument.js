@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { projectFireStore } from "../../config/firebase";
 
 const useGetDocument = (grad, data) => {
-  const [gradient, setGradient] = useState("red");
+  const [gradient, setGradient] = useState(null);
 
   const docRef = projectFireStore.collection("gradients").doc(grad);
 

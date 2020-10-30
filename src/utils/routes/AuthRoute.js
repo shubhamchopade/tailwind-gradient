@@ -7,7 +7,7 @@ const AuthRoute = (props) => {
 
   if (isLoggedin) return <Route {...props} />;
 
-  return <Redirect to="/login" />;
+  return <Redirect to="/" />;
 };
 
 export default AuthRoute;
