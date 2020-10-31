@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import { firebase } from "../config/firebase";
 import SavedGradients from "../components/SavedGradients";
 import { AppContext } from "../store/AppContext";
-import useGetDocument from "../utils/hooks/useGetDocument";
+import useGetDocument from "../utils/hooks/useUpdateDocument";
 
 const StyledDiv = styled.div`
   ${tw`grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2`}

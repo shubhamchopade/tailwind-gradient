@@ -5,40 +5,38 @@ import BrowseGradientBlock from "./BrowseGradientBlock";
 import Loader from "./Loader";
 import { SavedContext } from "../store/AppContext";
 import SavedGradientBlock from "./SavedGradientBlock";
+import { ButtonPrimary } from "./theme";
 
 const SavedGradients = () => {
   let [isLoading, setIsLoading] = useState(false);
-  let [gradientCount, setGradientCount] = useState();
-  let [gradientData, setGradientData] = useState();
+  let [gradientColor, setGradientColor] = useState([]);
 
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     projectFireStore
-  //       .collection("users")
-  //       .doc(user.uid)
-  //       .get()
-  //       .then((doc) => {
-  //         setGradientData(doc.data().count ? doc.data().count : null);
-  //         console.log(gradientData);
-  //         setIsLoading(false);
-  //       });
-  //   });
-  // }, [gradientCount]);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      projectFireStore
+        .collection("users")
+        .doc(user.uid)
+        .collection("gradients")
+        .onSnapshot((snapshot) => {
+          setGradientColor(snapshot.docs.map((doc) => doc.data()));
+        });
+    });
+  }, []);
 
   if (isLoading) return <Loader />;
 
-  const handleGradientData = () => {
-    setGradientCount([1, 2, 3, 4, 5]);
-    setGradientData([7, 8, 9]);
+  const handleGradientColor = () => {
+    console.log(gradientColor);
   };
 
   return (
-    <SavedContext.Provider
-      value={[gradientCount, setGradientCount, gradientData, setGradientData]}
-    >
-      <SavedGradientBlock />
-      <button onClick={handleGradientData}>Update on Cloud Data</button>
-    </SavedContext.Provider>
+    <>
+      {/* <SavedGradientBlock /> */}
+      <ButtonPrimary onClick={handleGradientColor}>Show</ButtonPrimary>
+      {gradientColor.map((col) => (
+        <BrowseGradientBlock color={col.classed} />
+      ))}
+    </>
   );
 };
 

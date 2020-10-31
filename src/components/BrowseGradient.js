@@ -1,8 +1,5 @@
 import { motion } from "framer";
 import React, { useState } from "react";
-import styled from "styled-components";
-import BrowseGradientBlock from "../components/BrowseGradientBlock";
-import tw from "twin.macro";
 import { BrowseLayout, H1, BrowseGridContainer } from "./theme";
 import { warmColorsWeights, colors } from "../utils/gradients/data";
 import BrowseGradientComponent from "./BrowseGradientComponent";

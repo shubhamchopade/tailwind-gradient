@@ -4,6 +4,7 @@ import { firebase } from "../config/firebase";
 import { AppContext } from "../store/AppContext";
 import { List, ButtonPrimary, NavUserInfo } from "./theme";
 import head from "../assets/images/head-img.svg";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 const Header = () => {
   const [isLoggedIn, user] = useContext(AppContext);
@@ -27,7 +28,7 @@ const Header = () => {
       <List toggle={toggle}>
         <ul>
           <li>
-            <NavLink to="/">
+            <NavLink to="/tailwind-gradient">
               <img className="w-20" src={head}></img>
             </NavLink>
           </li>
@@ -53,6 +54,8 @@ const Header = () => {
               ) : (
                 <p>{user.email}</p>
               )}
+              {isLoggedIn &&
+                (toggle ? <IoMdArrowDropup /> : <IoMdArrowDropdown />)}
             </NavUserInfo>
           )}
 
