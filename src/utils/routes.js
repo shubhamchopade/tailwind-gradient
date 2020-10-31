@@ -8,16 +8,16 @@ import Signup from "../components/Signup";
 
 export default [
   {
-    path: "/tailwind-gradient/",
+    path: "/",
     exact: "true",
     component: () => <Home />,
   },
   {
-    path: "/tailwind-gradient/login",
+    path: "/login",
     component: () => <Login />,
   },
   {
-    path: "/tailwind-gradient/signup",
+    path: "/signup",
     component: () => <Signup />,
   },
   {

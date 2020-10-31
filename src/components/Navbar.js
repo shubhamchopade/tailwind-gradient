@@ -17,7 +17,7 @@ const Header = () => {
       .auth()
       .signOut()
       .then((res) => {
-        history.replace("/tailwind-gradient/login");
+        history.replace("/login");
         setToggle(false);
       })
       .catch((e) => console.log(e.response.data));
@@ -28,7 +28,7 @@ const Header = () => {
       <List toggle={toggle}>
         <ul>
           <li>
-            <NavLink to="/tailwind-gradient">
+            <NavLink to="/">
               <img className="w-20" src={head}></img>
             </NavLink>
           </li>
@@ -69,7 +69,7 @@ const Header = () => {
               </p>
             )
           ) : (
-            <Link to="/tailwind-gradient/login">
+            <Link to="/login">
               <ButtonPrimary initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 Login
               </ButtonPrimary>
