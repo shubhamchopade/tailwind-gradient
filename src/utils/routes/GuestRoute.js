@@ -7,7 +7,7 @@ const GuestRoute = (props) => {
 
   if (!isLoggedin) return <Route {...props} />;
 
-  return <Redirect to="/tailwind-gradient/" />;
+  return <Redirect to="/" />;
 };
 
 export default GuestRoute;

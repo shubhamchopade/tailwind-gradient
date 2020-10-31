@@ -29,13 +29,17 @@ const SavedGradients = () => {
   return (
     <>
       {/* <SavedGradientBlock /> */}
-      <div className="grid place-items-center grid-cols-3">
+      <motion.div
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        className="grid place-items-center grid-cols-3"
+      >
         {gradientColor.map((col) => (
           <>
             <BrowseGradientBlock color={col.classed} />
           </>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

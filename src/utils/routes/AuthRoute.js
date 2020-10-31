@@ -7,7 +7,7 @@ const AuthRoute = (props) => {
 
   if (isLoggedin) return <Route {...props} />;
 
-  return <Redirect to="/tailwind-gradient/" />;
+  return <Redirect to="/login" />;
 };
 
 export default AuthRoute;
