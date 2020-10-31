@@ -17,6 +17,7 @@ const SavedGradients = () => {
         .collection("users")
         .doc(user.uid)
         .collection("gradients")
+        .orderBy("timestamp", "desc")
         .onSnapshot((snapshot) => {
           setGradientColor(snapshot.docs.map((doc) => doc.data()));
         });
@@ -33,9 +34,13 @@ const SavedGradients = () => {
     <>
       {/* <SavedGradientBlock /> */}
       <ButtonPrimary onClick={handleGradientColor}>Show</ButtonPrimary>
-      {gradientColor.map((col) => (
-        <BrowseGradientBlock color={col.classed} />
-      ))}
+      <div className="grid place-items-center grid-cols-3">
+        {gradientColor.map((col) => (
+          <>
+            <BrowseGradientBlock color={col.classed} />
+          </>
+        ))}
+      </div>
     </>
   );
 };

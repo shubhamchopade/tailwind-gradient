@@ -1,5 +1,11 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { ButtonPrimary, DirectionArrow, StyledLink } from "./theme";
+import {
+  ButtonPrimary,
+  DirectionArrow,
+  SaveButton,
+  SaveButtonFill,
+  StyledLink,
+} from "./theme";
 import useKeyPress from "../utils/hooks/useKeyPress";
 import { motion } from "framer";
 import { FaExclamationCircle } from "react-icons/fa";
@@ -13,6 +19,7 @@ import {
 } from "../store/AppContext";
 import PickerComponent from "./PickerComponent";
 import { projectFireStore } from "../config/firebase";
+import firebase from "firebase";
 
 const RandomGradient = () => {
   let spaceBar = useKeyPress(32);
@@ -30,6 +37,7 @@ const RandomGradient = () => {
   ] = useRandom(spaceBar);
   const [gradientData, setGradientData] = useContext(SavedContext);
   const [isLoggedIn, user] = useContext(AppContext);
+  const [gradientSaved, setGradientSaved] = useState(false);
 
   const [context, setContext] = useState("r");
 
@@ -56,7 +64,11 @@ const RandomGradient = () => {
         .collection("users")
         .doc(user.uid)
         .collection("gradients")
-        .add({ ...gradientData });
+        .add({
+          ...gradientData,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+    setGradientSaved(true);
     console.log(gradientData);
   };
 
@@ -76,9 +88,12 @@ const RandomGradient = () => {
       >
         <ArrowContext.Provider value={[context, setContext]}>
           <PickerComponent />
-          <ButtonPrimary onClick={handleSaveGradient}>
-            Save Gradient
-          </ButtonPrimary>
+          {!gradientSaved ? (
+            <SaveButton onClick={handleSaveGradient}></SaveButton>
+          ) : (
+            <SaveButtonFill onClick={handleSaveGradient}></SaveButtonFill>
+          )}
+
           <motion.div
             className={`h-screen bg-gradient-to-${context} ${gradientFrom} ${gradientTo}`}
           />

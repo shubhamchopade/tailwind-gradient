@@ -3,6 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { GoArrowSmallUp } from "react-icons/go";
 import { FaLongArrowAltUp } from "react-icons/fa";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { motion } from "framer";
 
 export const ButtonPrimary = styled(motion.button).attrs({
@@ -116,4 +117,16 @@ export const NavUserInfo = styled.div`
   img {
     ${tw`rounded-full ml-2 w-12`}
   }
+`;
+
+export const SaveButton = styled(BsHeart).attrs({
+  size: 50,
+})`
+  ${tw`cursor-pointer hover:opacity-75 absolute right-0 mr-8`}
+`;
+
+export const SaveButtonFill = styled(BsHeartFill).attrs({
+  size: 50,
+})`
+  ${tw`cursor-pointer hover:opacity-75 absolute right-0 mr-8`}
 `;
