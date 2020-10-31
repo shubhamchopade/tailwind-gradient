@@ -26,14 +26,9 @@ const SavedGradients = () => {
 
   if (isLoading) return <Loader />;
 
-  const handleGradientColor = () => {
-    console.log(gradientColor);
-  };
-
   return (
     <>
       {/* <SavedGradientBlock /> */}
-      <ButtonPrimary onClick={handleGradientColor}>Show</ButtonPrimary>
       <div className="grid place-items-center grid-cols-3">
         {gradientColor.map((col) => (
           <>

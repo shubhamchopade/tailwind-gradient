@@ -88,10 +88,15 @@ const RandomGradient = () => {
       >
         <ArrowContext.Provider value={[context, setContext]}>
           <PickerComponent />
-          {!gradientSaved ? (
-            <SaveButton onClick={handleSaveGradient}></SaveButton>
-          ) : (
-            <SaveButtonFill onClick={handleSaveGradient}></SaveButtonFill>
+          {isLoggedIn && (
+            <>
+              {" "}
+              {gradientSaved ? (
+                <SaveButtonFill onClick={handleSaveGradient}></SaveButtonFill>
+              ) : (
+                <SaveButton onClick={handleSaveGradient}></SaveButton>
+              )}{" "}
+            </>
           )}
 
           <motion.div

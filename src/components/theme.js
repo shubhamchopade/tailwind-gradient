@@ -120,13 +120,13 @@ export const NavUserInfo = styled.div`
 `;
 
 export const SaveButton = styled(BsHeart).attrs({
-  size: 50,
+  size: 30,
 })`
-  ${tw`cursor-pointer hover:opacity-75 absolute right-0 mr-8`}
+  ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute right-0 m-8`}
 `;
 
 export const SaveButtonFill = styled(BsHeartFill).attrs({
-  size: 50,
+  size: 30,
 })`
-  ${tw`cursor-pointer hover:opacity-75 absolute right-0 mr-8`}
+  ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute right-0 m-8`}
 `;

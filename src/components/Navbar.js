@@ -33,14 +33,9 @@ const Header = () => {
             </NavLink>
           </li>
           {isLoggedIn && (
-            <>
-              <li>
-                <NavLink to="/explore">Explore</NavLink>
-              </li>
-              <li>
-                <NavLink to="/saved">Saved</NavLink>
-              </li>
-            </>
+            <li>
+              <NavLink to="/saved">Saved</NavLink>
+            </li>
           )}
         </ul>
         <div>
