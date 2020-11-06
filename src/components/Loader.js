@@ -5,9 +5,9 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 const StyledSpinner = styled(FaCircleNotch).attrs({
-  size: 60,
+  size: 30,
 })`
-  ${tw`text-orange-500`}
+  ${tw`text-gray-500`}
   animation: spin 2s linear infinite;
   @keyframes spin {
     0% {
@@ -21,7 +21,8 @@ const StyledSpinner = styled(FaCircleNotch).attrs({
 
 const Loader = () => {
   return (
-    <motion.div className="flex items-center h-screen justify-center">
+    <motion.div className="flex flex-col items-center h-screen justify-center">
+      <p className="mb-4 text-gray-500">hold on...</p>
       <StyledSpinner />
     </motion.div>
   );

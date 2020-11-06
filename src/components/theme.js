@@ -121,18 +121,18 @@ export const NavUserInfo = styled.div`
 `;
 
 export const SaveButton = styled(BsHeart).attrs({
-  size: 30,
+  size: 25,
 })`
-  ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute right-0 m-8`}
+  ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute right-0 m-8`}
+`;
+
+export const SaveButtonFill = styled(BsHeartFill).attrs({
+  size: 25,
+})`
+  ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute right-0 m-8`}
 `;
 export const CopyButton = styled(AiOutlineCopy).attrs({
   size: 30,
 })`
-  ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute left-0 m-8`}
-`;
-
-export const SaveButtonFill = styled(BsHeartFill).attrs({
-  size: 30,
-})`
-  ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute right-0 m-8`}
+  ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute left-0 m-8`}
 `;
