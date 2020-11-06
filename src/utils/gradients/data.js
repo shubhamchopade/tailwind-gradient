@@ -18,6 +18,10 @@ export const colors = [
     name: "dull",
     color: ["teal", "gray", "pink"],
   },
+  {
+    name: "bright",
+    color: ["gray", "yellow", "green"],
+  },
 ];
 
 export const directions = [
