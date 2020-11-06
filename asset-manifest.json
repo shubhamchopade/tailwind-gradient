@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.b487dae8.chunk.css",
-    "main.js": "/static/js/main.a553ae39.chunk.js",
-    "main.js.map": "/static/js/main.a553ae39.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f2c544db.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f2c544db.js.map",
-    "static/js/2.64c6ac36.chunk.js": "/static/js/2.64c6ac36.chunk.js",
-    "static/js/2.64c6ac36.chunk.js.map": "/static/js/2.64c6ac36.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.b5dcfdcbc539a3c1d7270e5bdd8d0e5c.js": "/precache-manifest.b5dcfdcbc539a3c1d7270e5bdd8d0e5c.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.b487dae8.chunk.css.map": "/static/css/main.b487dae8.chunk.css.map",
-    "static/js/2.64c6ac36.chunk.js.LICENSE.txt": "/static/js/2.64c6ac36.chunk.js.LICENSE.txt",
-    "static/media/head-img.svg": "/static/media/head-img.a46d4d8c.svg"
+    "main.css": "/tailwind-gradient/static/css/main.b487dae8.chunk.css",
+    "main.js": "/tailwind-gradient/static/js/main.c3349513.chunk.js",
+    "main.js.map": "/tailwind-gradient/static/js/main.c3349513.chunk.js.map",
+    "runtime-main.js": "/tailwind-gradient/static/js/runtime-main.797de252.js",
+    "runtime-main.js.map": "/tailwind-gradient/static/js/runtime-main.797de252.js.map",
+    "static/js/2.fe0e37a6.chunk.js": "/tailwind-gradient/static/js/2.fe0e37a6.chunk.js",
+    "static/js/2.fe0e37a6.chunk.js.map": "/tailwind-gradient/static/js/2.fe0e37a6.chunk.js.map",
+    "index.html": "/tailwind-gradient/index.html",
+    "precache-manifest.85eea9ff1d8ab6257ae2898f46793ddd.js": "/tailwind-gradient/precache-manifest.85eea9ff1d8ab6257ae2898f46793ddd.js",
+    "service-worker.js": "/tailwind-gradient/service-worker.js",
+    "static/css/main.b487dae8.chunk.css.map": "/tailwind-gradient/static/css/main.b487dae8.chunk.css.map",
+    "static/js/2.fe0e37a6.chunk.js.LICENSE.txt": "/tailwind-gradient/static/js/2.fe0e37a6.chunk.js.LICENSE.txt",
+    "static/media/head-img.svg": "/tailwind-gradient/static/media/head-img.a46d4d8c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f2c544db.js",
-    "static/js/2.64c6ac36.chunk.js",
+    "static/js/runtime-main.797de252.js",
+    "static/js/2.fe0e37a6.chunk.js",
     "static/css/main.b487dae8.chunk.css",
-    "static/js/main.a553ae39.chunk.js"
+    "static/js/main.c3349513.chunk.js"
   ]
 }
