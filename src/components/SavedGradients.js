@@ -8,7 +8,7 @@ import SavedGradientBlock from "./SavedGradientBlock";
 import { ButtonPrimary } from "./theme";
 
 const SavedGradients = () => {
-  let [isLoading, setIsLoading] = useState(false);
+  let [isLoading, setIsLoading] = useState(true);
   let [gradientColor, setGradientColor] = useState([]);
 
   useEffect(() => {
@@ -21,6 +21,7 @@ const SavedGradients = () => {
         .onSnapshot((snapshot) => {
           setGradientColor(snapshot.docs.map((doc) => doc.data()));
         });
+      setIsLoading(false);
     });
   }, []);
 

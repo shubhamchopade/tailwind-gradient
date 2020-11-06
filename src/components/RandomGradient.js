@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import {
   ButtonPrimary,
+  CopyButton,
   DirectionArrow,
   SaveButton,
   SaveButtonFill,
@@ -20,6 +21,7 @@ import {
 import PickerComponent from "./PickerComponent";
 import { projectFireStore } from "../config/firebase";
 import firebase from "firebase";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const RandomGradient = () => {
   let spaceBar = useKeyPress(32);
@@ -51,7 +53,6 @@ const RandomGradient = () => {
 
   useEffect(() => {
     console.log(`${gradientFrom} ${gradientTo}`);
-    console.log(gradientData);
     setGradientData({
       name: 2,
       classed: `${gradientFrom} ${gradientTo}`,
@@ -88,6 +89,9 @@ const RandomGradient = () => {
       >
         <ArrowContext.Provider value={[context, setContext]}>
           <PickerComponent />
+          <CopyToClipboard text={`${gradientFrom} ${gradientTo}`}>
+            <CopyButton />
+          </CopyToClipboard>
           {isLoggedIn && (
             <>
               {" "}

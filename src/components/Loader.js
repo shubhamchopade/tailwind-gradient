@@ -8,7 +8,7 @@ const StyledSpinner = styled(FaCircleNotch).attrs({
   size: 60,
 })`
   ${tw`text-orange-500`}
-  animation: spin 2s ease-in-out infinite;
+  animation: spin 2s linear infinite;
   @keyframes spin {
     0% {
       transform: rotate(0);

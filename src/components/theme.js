@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import { GoArrowSmallUp } from "react-icons/go";
 import { FaLongArrowAltUp } from "react-icons/fa";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { AiOutlineCopy } from "react-icons/ai";
 import { motion } from "framer";
 
 export const ButtonPrimary = styled(motion.button).attrs({
@@ -123,6 +124,11 @@ export const SaveButton = styled(BsHeart).attrs({
   size: 30,
 })`
   ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute right-0 m-8`}
+`;
+export const CopyButton = styled(AiOutlineCopy).attrs({
+  size: 30,
+})`
+  ${tw`cursor-pointer text-gray-800 hover:opacity-75 absolute left-0 m-8`}
 `;
 
 export const SaveButtonFill = styled(BsHeartFill).attrs({
