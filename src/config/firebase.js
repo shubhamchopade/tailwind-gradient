@@ -1,5 +1,6 @@
-import firebase from 'firebase'
-import 'firebase/firestore'
+import firebase from "firebase";
+import "firebase/firestore";
+import "firebase/firebase-functions";
 
 var firebaseConfig = {
   apiKey: "AIzaSyDAiHVo0r2yn_OMSWxHm8DxwhWcb2_c-BI",
@@ -8,12 +9,13 @@ var firebaseConfig = {
   projectId: "react-auth-88b56",
   storageBucket: "react-auth-88b56.appspot.com",
   messagingSenderId: "491935843921 ",
-  appId: "1:491935843921:web:596835e765857e28f89a70"
+  appId: "1:491935843921:web:596835e765857e28f89a70",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 const projectStorage = firebase.storage();
 const projectFireStore = firebase.firestore();
+const firebaseFunctions = firebase.functions();
 
-export {firebase, projectFireStore, projectStorage}
+export { firebase, projectFireStore, projectStorage, firebaseFunctions };
