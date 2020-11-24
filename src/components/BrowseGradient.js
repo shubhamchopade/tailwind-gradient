@@ -5,9 +5,6 @@ import { warmColorsWeights, colors } from "../utils/gradients/data";
 import BrowseGradientComponent from "./BrowseGradientComponent";
 
 const BrowseGradient = () => {
-  let [From, setFrom] = useState("red-300");
-  let [To, setTo] = useState("yellow-500");
-
   return (
     <motion.div initial={{ x: 100 }} animate={{ x: 0 }}>
       <H1>Explore Beautiful Gradients</H1>

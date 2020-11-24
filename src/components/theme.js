@@ -135,4 +135,8 @@ export const CopyButton = styled(AiOutlineCopy).attrs({
   size: 30,
 })`
   ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute left-0 m-8`}
+
+  h1 {
+    ${tw`px-4 py-2 bg-red-500`}
+  }
 `;

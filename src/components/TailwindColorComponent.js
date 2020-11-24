@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import TailwindColorBlock from "./TailwindColorBlock";
 
 const TailwindColorComponent = ({ value }) => {
-  const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+  const weights = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
   const colors = [
     {
@@ -15,19 +15,11 @@ const TailwindColorComponent = ({ value }) => {
       weight: weights,
     },
     {
-      name: "orange",
-      weight: weights,
-    },
-    {
       name: "yellow",
       weight: weights,
     },
     {
       name: "green",
-      weight: weights,
-    },
-    {
-      name: "teal",
       weight: weights,
     },
     {
@@ -48,8 +40,7 @@ const TailwindColorComponent = ({ value }) => {
     <motion.div
       initial={{ y: -10 }}
       animate={{ y: 0 }}
-      final={{ y: -10 }}
-      className="grid grid-cols-9 w-32 mt-2 absolute rounded"
+      className="grid grid-cols-10 w-32 mt-2 absolute rounded"
     >
       {colors.map((col) =>
         col.weight.map((wei, index) => (

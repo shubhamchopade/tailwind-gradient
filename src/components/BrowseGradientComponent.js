@@ -9,7 +9,7 @@ const BrowseGradientComponent = ({ heading, colors, weights }) => {
       <BrowseLayout>
         {colors.map((GradColor) => (
           <BrowseGradientBlock
-            color={`from-${GradColor}-300 to-${GradColor}-500`}
+            color={`from-${GradColor.from}-300 to-${GradColor.to}-200`}
           />
         ))}
       </BrowseLayout>

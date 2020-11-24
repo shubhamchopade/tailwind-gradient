@@ -22,6 +22,7 @@ import PickerComponent from "./PickerComponent";
 import { projectFireStore } from "../config/firebase";
 import firebase from "firebase";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import CopyToClipboardComponent from "./CopyToClipboardComponent";
 
 const RandomGradient = () => {
   let spaceBar = useKeyPress(32);
@@ -89,9 +90,16 @@ const RandomGradient = () => {
       >
         <ArrowContext.Provider value={[context, setContext]}>
           <PickerComponent />
-          <CopyToClipboard text={`${gradientFrom} ${gradientTo}`}>
-            <CopyButton />
-          </CopyToClipboard>
+          <div className="flex mx-auto justify-around max-w-xs items-center rounded p-2 bg-gray-200 my-4">
+            <FaExclamationCircle />
+            <p className="text-xs">
+              Press Spacebar to Generate a random Gradient
+            </p>
+          </div>
+          <CopyToClipboardComponent
+            text={`bg-gradient-to-${context} ${gradientFrom} ${gradientTo}`}
+          />
+
           {isLoggedIn && (
             <>
               {" "}
@@ -108,10 +116,6 @@ const RandomGradient = () => {
           />
         </ArrowContext.Provider>
       </GradientFromContext.Provider>
-      <div className="flex mx-auto justify-around max-w-xs items-center rounded p-2 bg-gray-200 my-4">
-        <FaExclamationCircle />
-        <p className="text-xs">Press Spacebar to Generate a random Gradient</p>
-      </div>
     </motion.div>
   );
 };

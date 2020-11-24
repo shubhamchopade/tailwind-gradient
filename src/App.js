@@ -18,6 +18,7 @@ import Loader from "./components/Loader";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const [isAdmin, setIsAdmin] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   let [gradientData, setGradientData] = useState([]);
 
@@ -26,13 +27,16 @@ function App() {
       if (user) {
         setIsLoggedIn(true);
         setUser(user);
+        user.getIdTokenResult().then((idTokenResult) => {
+          setIsAdmin(idTokenResult.claims.admin);
+        });
+
         setIsLoading(false);
       } else {
         setUser({});
         setIsLoggedIn(false);
         setIsLoading(false);
       }
-      console.log("Logged in", user.displayName);
     });
   }, []);
 
@@ -40,7 +44,7 @@ function App() {
 
   return (
     <Router>
-      <AppContext.Provider value={[isLoggedIn, user]}>
+      <AppContext.Provider value={[isLoggedIn, user, isAdmin, setIsAdmin]}>
         <SavedContext.Provider value={[gradientData, setGradientData]}>
           <Header />
           <Switch>

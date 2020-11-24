@@ -6,13 +6,12 @@ const colors = [
   "green",
   "gray",
   "red",
-  "orange",
   "purple",
   "pink",
   "indigo",
 ];
 
-const weights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+const weights = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 const useRandom = (spaceBar) => {
   const [randomColorFrom, setRandomColorFrom] = useState("red");
