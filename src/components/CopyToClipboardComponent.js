@@ -23,7 +23,7 @@ const CopyToClipboardComponent = ({ text }) => {
   }
 
   return (
-    <div className="flex">
+    <div>
       <CopyToClipboard text={text}>
         <CopyButton onClick={handleClick} />
       </CopyToClipboard>
