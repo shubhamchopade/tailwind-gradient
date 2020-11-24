@@ -5,19 +5,28 @@ function useKeyPress(keycode) {
 
   function downHandler(e) {
     e.preventDefault();
+    // if (e.keyCode == keycode) {
+    //   setKeyPressed(true);
+    // }
+  }
+  function upHandler(e) {
+    e.preventDefault();
     if (e.keyCode == keycode) {
-      setKeyPressed(true);
+      setKeyPressed((prev) => !prev);
     }
   }
 
   useEffect(() => {
     window.addEventListener("keydown", downHandler);
-
-    return () => window.removeEventListener("keydown", downHandler);
-    // window.addEventListener("keyup", upHandler);
+    window.addEventListener("keyup", upHandler);
+    // Remove event listeners on cleanup
+    return () => {
+      window.removeEventListener("keydown", downHandler);
+      window.removeEventListener("keyup", upHandler);
+    };
   }, []);
 
-  return [keyPressed, setKeyPressed];
+  return keyPressed;
 }
 
 export default useKeyPress;

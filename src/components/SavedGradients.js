@@ -5,40 +5,43 @@ import BrowseGradientBlock from "./BrowseGradientBlock";
 import Loader from "./Loader";
 import { SavedContext } from "../store/AppContext";
 import SavedGradientBlock from "./SavedGradientBlock";
+import { ButtonPrimary } from "./theme";
 
 const SavedGradients = () => {
-  let [isLoading, setIsLoading] = useState(false);
-  let [gradientCount, setGradientCount] = useState();
-  let [gradientData, setGradientData] = useState();
+  let [isLoading, setIsLoading] = useState(true);
+  let [gradientColor, setGradientColor] = useState([]);
 
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     projectFireStore
-  //       .collection("users")
-  //       .doc(user.uid)
-  //       .get()
-  //       .then((doc) => {
-  //         setGradientData(doc.data().count ? doc.data().count : null);
-  //         console.log(gradientData);
-  //         setIsLoading(false);
-  //       });
-  //   });
-  // }, [gradientCount]);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      projectFireStore
+        .collection("users")
+        .doc(user.uid)
+        .collection("gradients")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((snapshot) => {
+          setGradientColor(snapshot.docs.map((doc) => doc.data()));
+        });
+      setIsLoading(false);
+    });
+  }, []);
 
   if (isLoading) return <Loader />;
 
-  const handleGradientData = () => {
-    setGradientCount([1, 2, 3, 4, 5]);
-    setGradientData([7, 8, 9]);
-  };
-
   return (
-    <SavedContext.Provider
-      value={[gradientCount, setGradientCount, gradientData, setGradientData]}
-    >
-      <SavedGradientBlock />
-      <button onClick={handleGradientData}>Update on Cloud Data</button>
-    </SavedContext.Provider>
+    <>
+      {/* <SavedGradientBlock /> */}
+      <motion.div
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        className="grid place-items-center grid-cols-3"
+      >
+        {gradientColor.map((col) => (
+          <>
+            <BrowseGradientBlock color={col.classed} />
+          </>
+        ))}
+      </motion.div>
+    </>
   );
 };
 

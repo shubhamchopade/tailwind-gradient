@@ -3,6 +3,8 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { GoArrowSmallUp } from "react-icons/go";
 import { FaLongArrowAltUp } from "react-icons/fa";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { AiOutlineCopy } from "react-icons/ai";
 import { motion } from "framer";
 
 export const ButtonPrimary = styled(motion.button).attrs({
@@ -115,5 +117,26 @@ export const NavUserInfo = styled.div`
   }
   img {
     ${tw`rounded-full ml-2 w-12`}
+  }
+`;
+
+export const SaveButton = styled(BsHeart).attrs({
+  size: 25,
+})`
+  ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute right-0 m-8`}
+`;
+
+export const SaveButtonFill = styled(BsHeartFill).attrs({
+  size: 25,
+})`
+  ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute right-0 m-8`}
+`;
+export const CopyButton = styled(AiOutlineCopy).attrs({
+  size: 30,
+})`
+  ${tw`cursor-pointer p-1 rounded-full bg-white text-gray-800 hover:opacity-75 absolute left-0 m-8`}
+
+  h1 {
+    ${tw`px-4 py-2 bg-red-500`}
   }
 `;

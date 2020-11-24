@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { firebase } from "../config/firebase";
 import Input from "../components/Input";
-import { Frame, motion } from "framer";
-import styled from "styled-components";
+import { motion } from "framer";
 import { FaGoogle } from "react-icons/fa";
 import { ButtonPrimary } from "../components/theme";
 
 const Login = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const history = useHistory();
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -22,13 +20,7 @@ const Login = () => {
         var user = result.user;
       })
       .catch(function (error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-
-        var email = error.email;
-
-        var credential = error.credential;
-        // ...
+        console.log(error);
       });
   };
 

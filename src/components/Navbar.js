@@ -4,9 +4,11 @@ import { firebase } from "../config/firebase";
 import { AppContext } from "../store/AppContext";
 import { List, ButtonPrimary, NavUserInfo } from "./theme";
 import head from "../assets/images/head-img.svg";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { FaInstagram } from "react-icons/fa";
 
 const Header = () => {
-  const [isLoggedIn, user] = useContext(AppContext);
+  const [isLoggedIn, user, isAdmin, setIsAdmin] = useContext(AppContext);
   const [toggle, setToggle] = useState(false);
 
   const history = useHistory();
@@ -16,10 +18,11 @@ const Header = () => {
       .auth()
       .signOut()
       .then((res) => {
-        history.replace("/tailwind-gradient/login");
+        history.replace("/login");
         setToggle(false);
       })
       .catch((e) => console.log(e.response.data));
+    setIsAdmin(null);
   };
 
   return (
@@ -32,14 +35,9 @@ const Header = () => {
             </NavLink>
           </li>
           {isLoggedIn && (
-            <>
-              <li>
-                <NavLink to="/explore">Explore</NavLink>
-              </li>
-              <li>
-                <NavLink to="/saved">Saved</NavLink>
-              </li>
-            </>
+            <li>
+              <NavLink to="/saved">Saved</NavLink>
+            </li>
           )}
         </ul>
         <div>
@@ -53,36 +51,36 @@ const Header = () => {
               ) : (
                 <p>{user.email}</p>
               )}
+              {isLoggedIn &&
+                (toggle ? <IoMdArrowDropup /> : <IoMdArrowDropdown />)}
             </NavUserInfo>
           )}
 
           {isLoggedIn ? (
             toggle && (
-              <p
-                className="absolute text-sm rounded mt-2 mr-2 p-2 bg-gray-300 right-0 cursor-pointer"
-                onClick={logout}
-              >
-                Logout
-              </p>
+              <>
+                <p
+                  className="absolute text-sm rounded mt-2 mr-2 p-2 bg-gray-300 right-0 cursor-pointer"
+                  onClick={logout}
+                >
+                  Logout
+                </p>
+              </>
             )
           ) : (
-            <Link to="/tailwind-gradient/login">
-              <ButtonPrimary initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                Login
-              </ButtonPrimary>
-            </Link>
+            <a target="_blank" href="https://instagram.com/tech.sapien">
+              <FaInstagram
+                size={30}
+                className="text-gray-700 hover:text-gray-900 cursor-pointer"
+              />
+            </a>
           )}
-
-          {/* {!isLoggedIn && (
-            <li>
-              <NavLink to="/signup">
-                <ButtonPrimary>Sign Up</ButtonPrimary>
-              </NavLink>
-            </li>
-          )} */}
         </div>
       </List>
       <hr></hr>
+      <p className="w-full text-center bg-red-300">
+        {isAdmin == null ? "" : "Admin"}
+      </p>
     </div>
   );
 };

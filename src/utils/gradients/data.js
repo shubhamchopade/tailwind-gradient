@@ -4,19 +4,19 @@ export const warmColorsWeights = ["300", "400", "500", "600", "700"];
 export const colors = [
   {
     name: "warm",
-    color: ["yellow", "red", "orange"],
+    color: [
+      { from: "yellow", to: "red" },
+      { from: "red", to: "yellow" },
+      { from: "yellow", to: "gray" },
+    ],
   },
   {
     name: "cool",
-    color: ["blue", "teal", "green"],
-  },
-  {
-    name: "fresh",
-    color: ["green", "blue", "yellow"],
-  },
-  {
-    name: "dull",
-    color: ["teal", "gray", "pink"],
+    color: [
+      { from: "blue", to: "indigo" },
+      { from: "purple", to: "pink" },
+      { from: "indigo", to: "purple" },
+    ],
   },
 ];
 

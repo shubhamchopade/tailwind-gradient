@@ -2,7 +2,6 @@
     "name": "tailwind-gradients",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://shubhamchopade.github.io/tailwind-gradient/",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
@@ -12,7 +11,9 @@
         "formik": "^2.2.0",
         "framer": "^1.2.8",
         "framer-motion": "^2.9.1",
+        "postcss": "^8.1.10",
         "react": "^16.13.1",
+        "react-copy-to-clipboard": "^5.0.2",
         "react-dom": "^16.13.1",
         "react-icons": "^3.11.0",
         "react-router-dom": "^5.2.0",
@@ -45,12 +46,12 @@
         ]
     },
     "devDependencies": {
-        "autoprefixer": "^9.7.6",
+        "autoprefixer": "^10.0.2",
         "babel-plugin-macros": "^2.8.0",
         "gh-pages": "^3.1.0",
-        "postcss-cli": "^7.1.0",
+        "postcss-cli": "^8.3.0",
         "tailwind.macro": "^0.5.10",
-        "tailwindcss": "^1.9.1",
-        "twin.macro": "^1.10.0"
+        "tailwindcss": "^2.0.1",
+        "twin.macro": "^1.12.1"
     }
 }
