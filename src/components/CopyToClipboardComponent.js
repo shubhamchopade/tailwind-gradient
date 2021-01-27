@@ -8,7 +8,7 @@ const CopyToClipboardComponent = ({ text }) => {
     <motion.h1
       initial={{ x: -10 }}
       animate={{ x: 0 }}
-      className="px-4 py-2 mt-7 ml-20 bg-black absolute text-white rounded-lg"
+      className="px-4 py-2 mt-7 ml-20 bg-black absolute z-0 text-white rounded-lg"
     >
       Copied!
     </motion.h1>
@@ -23,7 +23,7 @@ const CopyToClipboardComponent = ({ text }) => {
   }
 
   return (
-    <div>
+    <div className="relative z-0">
       <CopyToClipboard text={text}>
         <CopyButton onClick={handleClick} />
       </CopyToClipboard>

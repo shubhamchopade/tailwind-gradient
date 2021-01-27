@@ -40,8 +40,6 @@ function App() {
     });
   }, []);
 
-  if (isLoading) return <Loader />;
-
   return (
     <Router>
       <AppContext.Provider value={[isLoggedIn, user, isAdmin, setIsAdmin]}>
