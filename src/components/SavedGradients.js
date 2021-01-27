@@ -2,10 +2,7 @@ import { motion } from "framer";
 import React, { useEffect, useState } from "react";
 import { firebase, projectFireStore } from "../config/firebase";
 import BrowseGradientBlock from "./BrowseGradientBlock";
-import Loader from "./Loader";
-import { SavedContext } from "../store/AppContext";
-import SavedGradientBlock from "./SavedGradientBlock";
-import { ButtonPrimary } from "./theme";
+import { Loader } from "./Loader";
 
 const SavedGradients = () => {
   let [isLoading, setIsLoading] = useState(true);

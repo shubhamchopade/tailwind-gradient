@@ -4,7 +4,7 @@ import { DirectionArrow } from "./theme";
 
 const DirectionArrows = ({ setContext }) => {
   return (
-    <div className="w-32 mt-2 bg-gray-200 rounded shadow-md absolute">
+    <div className="w-32 mt-2 bg-gray-200 rounded shadow-md absolute z-10">
       <div className="flex justify-between">
         <DirectionArrow onClick={() => setContext("tl")} rotate="315deg" />
         <DirectionArrow onClick={() => setContext("t")} rotate="" />

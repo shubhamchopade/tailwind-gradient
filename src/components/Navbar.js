@@ -34,6 +34,9 @@ const Header = () => {
               <img className="w-20" src={head}></img>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
           {isLoggedIn && (
             <li>
               <NavLink to="/saved">Saved</NavLink>

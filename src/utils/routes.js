@@ -5,6 +5,7 @@ import Gallery from "../page/Gallery";
 import SavedGradients from "../components/SavedGradients";
 import BrowseGradient from "../components/BrowseGradient";
 import Signup from "../components/Signup";
+import { About } from "../components/About";
 
 export default [
   {
@@ -27,6 +28,10 @@ export default [
   {
     path: "/saved",
     component: () => <SavedGradients />,
+  },
+  {
+    path: "/about",
+    component: () => <About />,
   },
   {
     path: "*",
