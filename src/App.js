@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./assets/tailwind.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import routes from "./utils/routes";
 import { firebase, projectFireStore } from "./config/firebase";
 import { AppContext, SavedContext } from "./store/AppContext";
@@ -14,6 +8,7 @@ import AuthRoute from "./utils/routes/AuthRoute";
 import GuestRoute from "./utils/routes/GuestRoute";
 import Header from "./components/Navbar";
 import Loader from "./components/Loader";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,6 +16,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   let [gradientData, setGradientData] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -40,12 +36,14 @@ function App() {
     });
   }, []);
 
+  console.log(location);
+
   return (
-    <Router>
-      <AppContext.Provider value={[isLoggedIn, user, isAdmin, setIsAdmin]}>
-        <SavedContext.Provider value={[gradientData, setGradientData]}>
-          <Header />
-          <Switch>
+    <AppContext.Provider value={[isLoggedIn, user, isAdmin, setIsAdmin]}>
+      <SavedContext.Provider value={[gradientData, setGradientData]}>
+        <Header />
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location}>
             {routes.map((route, index) => {
               if (route.path === "/login") {
                 return (
@@ -91,9 +89,9 @@ function App() {
               <h1>Not found</h1>
             </Route>
           </Switch>
-        </SavedContext.Provider>
-      </AppContext.Provider>
-    </Router>
+        </AnimatePresence>
+      </SavedContext.Provider>
+    </AppContext.Provider>
   );
 }
 

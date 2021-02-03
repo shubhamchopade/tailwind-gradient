@@ -75,7 +75,7 @@ const RandomGradient = () => {
   };
 
   return (
-    <motion.div initial={{ x: -100 }} animate={{ x: 0 }}>
+    <motion.div>
       <GradientFromContext.Provider
         value={[
           randomColorFrom,
@@ -112,7 +112,7 @@ const RandomGradient = () => {
           )}
 
           <motion.div
-            className={`h-screen bg-gradient-to-${context} ${gradientFrom} ${gradientTo}`}
+            className={`h-screen transition-colors bg-gradient-to-${context} ${gradientFrom} ${gradientTo}`}
           />
         </ArrowContext.Provider>
       </GradientFromContext.Provider>

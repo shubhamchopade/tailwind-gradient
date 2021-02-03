@@ -6,7 +6,7 @@ import BrowseGradientComponent from "./BrowseGradientComponent";
 
 const BrowseGradient = () => {
   return (
-    <motion.div initial={{ x: 100 }} animate={{ x: 0 }}>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <H1>Explore Beautiful Gradients</H1>
       <>
         <BrowseGridContainer>
