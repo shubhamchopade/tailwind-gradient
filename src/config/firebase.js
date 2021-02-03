@@ -14,6 +14,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 const projectStorage = firebase.storage();
 const projectFireStore = firebase.firestore();
