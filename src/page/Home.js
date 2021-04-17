@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import tw from "twin.macro";
 import RandomGradient from "../components/RandomGradient";
 import BrowseGradient from "../components/BrowseGradient";
 import { StyledLink } from "../components/theme";
 import Footer from "../components/Footer";
+import { motion } from "framer";
 
 const Home = () => {
   const [toggle, setToggle] = useState(true);
@@ -13,7 +12,7 @@ const Home = () => {
   const handleBrowse = () => setToggle(false);
 
   return (
-    <div>
+    <motion.div>
       <div className="flex justify-around max-w-6xl mx-auto ">
         <StyledLink onClick={handleRandom} toggle={toggle}>
           Generate Random Gradient
@@ -24,7 +23,7 @@ const Home = () => {
       </div>
       {toggle ? <RandomGradient /> : <BrowseGradient />}
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

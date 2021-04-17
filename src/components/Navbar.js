@@ -81,9 +81,6 @@ const Header = () => {
         </div>
       </List>
       <hr></hr>
-      <p className="w-full text-center bg-red-300">
-        {isAdmin == null ? "" : "Admin"}
-      </p>
     </div>
   );
 };

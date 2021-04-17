@@ -1,8 +1,26 @@
+import { motion } from "framer";
 import React from "react";
 
 export const About = () => {
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+    },
+    out: {
+      opacity: 0,
+    },
+  };
   return (
-    <div className="max-w-md mx-auto mt-32 px-2">
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      className="max-w-md mx-auto mt-32 px-2"
+    >
       <h1 className="text-2xl">Welcome 😉</h1>
       <p className="text-xl">
         A very simple tool for developers using Gradients in TailwindCSS. These
@@ -12,6 +30,6 @@ export const About = () => {
         </a>
         . Hope this helps ❤{" "}
       </p>
-    </div>
+    </motion.div>
   );
 };

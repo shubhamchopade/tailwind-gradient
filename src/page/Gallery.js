@@ -2,8 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import BrowseGradientBlock from "../components/BrowseGradientBlock";
 import tw from "twin.macro";
-import { firebase } from "../config/firebase";
-import SavedGradients from "../components/SavedGradients";
 import { AppContext } from "../store/AppContext";
 import useGetDocument from "../utils/hooks/useUpdateDocument";
 

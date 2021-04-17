@@ -3,7 +3,6 @@ import Home from "../page/Home";
 import Login from "../page/Login";
 import Gallery from "../page/Gallery";
 import SavedGradients from "../components/SavedGradients";
-import BrowseGradient from "../components/BrowseGradient";
 import Signup from "../components/Signup";
 import { About } from "../components/About";
 
